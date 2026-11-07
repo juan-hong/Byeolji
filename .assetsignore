@@ -1,0 +1,7 @@
+.assetsignore
+.gitignore
+.git
+.impeccable
+PRODUCT.md
+README.md
+shots/*.json
