@@ -3,18 +3,147 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Byeolji</title>
-<meta name="description" content="Byeolji — Genshin Impact resource markers on your in-game map">
-<style>
-  body { margin:0; min-height:100vh; display:grid; place-items:center; background:#14161c; color:#ece6d8; font:16px/1.6 system-ui, "Malgun Gothic", sans-serif; text-align:center; }
-  a { color:#e6c77a; }
-</style>
+<title>Byeolji · 원신 큰 지도 위에 자원 마커</title>
+<meta name="description" content="원신 PC 큰 지도와 미니맵 위에 자원 위치를 띄워 주는 무료 Windows 오버레이 앱">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
+
+<header class="top">
+  <a class="brand" href="/"><img src="icon.png" alt="" width="30" height="30">Byeolji</a>
+  <nav>
+    <a href="#how">쓰는 법</a>
+    <a href="#install">설치</a>
+    <a href="#about">만든 사람</a>
+    <select class="lang" aria-label="언어">
+      <option>한국어</option><option>English</option><option>日本語</option><option>中文</option>
+      <option>Русский</option><option>Bahasa Indonesia</option><option>Español</option>
+    </select>
+  </nav>
+</header>
+
 <main>
-  <h1>Byeolji</h1>
-  <p>홈페이지 준비 중입니다 · Website coming soon</p>
-  <p><a href="https://github.com/juan-hong/Byeolji-releases/releases/latest">다운로드 / Download</a></p>
+  <!-- 첫 화면: 측량도(실제 게임 큰 지도) 위에 투명 별지 한 장 -->
+  <section class="survey" aria-labelledby="title">
+    <div class="sheet-frame">
+      <div class="ticks ticks-top" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+      <div class="ticks ticks-left" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+
+      <div class="plate" id="plate">
+        <img class="map" src="shots/mond.jpg" alt="원신 큰 지도의 몬드성 주변. 투명 시트를 덮은 쪽에만 자원 마커가 보인다." width="1117" height="864">
+        <div class="film" id="film" aria-hidden="true">
+          <div class="markers" id="markers"></div>
+          <span class="reg reg-tr"></span><span class="reg reg-br"></span>
+        </div>
+        <div class="edge" id="edge" role="slider" tabindex="0" aria-label="투명 시트 위치 (덮인 쪽에 마커가 보여요)"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
+          <span class="knob" aria-hidden="true"><svg viewBox="-26 -26 52 52"><path d="M0-22 4.4-4.4 22 0 4.4 4.4 0 22-4.4 4.4-22 0-4.4-4.4z"/><circle r="3.6"/></svg></span>
+        </div>
+        <p class="pencil" aria-hidden="true">← 끌어 보세요</p>
+      </div>
+
+      <div class="label">
+        <h1 id="title">지도 위에<br>별지 한 장.</h1>
+        <p class="lede">원신 PC 큰 지도와 미니맵 위에 자원 위치를 바로 띄워 주는 무료 앱. 웹 지도를 따로 열지 않아도 돼요.</p>
+        <a class="dl" id="dl" href="https://github.com/juan-hong/Byeolji-releases/releases/latest">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11m0 0-4.5-4.5m4.5 4.5 4.5-4.5M4.5 19.5h15"/></svg>
+          <span>Windows용 내려받기</span>
+        </a>
+        <p class="fine" id="fine">무료 · Windows 10/11 64비트 · HoYoverse와 무관한 팬 프로젝트</p>
+      </div>
+    </div>
+    <p class="caption">실제 게임 화면(몬드성 주변)에 Byeolji 데이터로 워프 포인트, 일곱신상, 민들레 씨앗, 풍차 국화 등 103곳을 앱과 같은 방식으로 찍은 모습.</p>
+  </section>
+
+  <!-- 범례: 지도 아래 붙는 설명 상자처럼 -->
+  <section class="legend" id="how" aria-labelledby="how-h">
+    <h2 id="how-h">범례</h2>
+    <dl>
+      <div>
+        <dt><span class="mk" style="--c:#295A6B"><img src="icons/3.png" alt=""></span>큰 지도를 열면</dt>
+        <dd>지도(<kbd>M</kbd>)를 열고 끌고 확대해도 화면을 알아보고 마커가 따라와요. 지하 층도, 패드로 조작할 때도 알아봐요.</dd>
+      </div>
+      <div>
+        <dt><span class="mk mk-mini" style="--c:#6B4F29"><img src="icons/43.png" alt=""></span>걸어 다닐 땐 미니맵에</dt>
+        <dd>미니맵 원 안에도 가까운 자원이 떠요. 지도를 다시 열 필요가 없어요.</dd>
+      </div>
+      <div>
+        <dt><span class="mk mk-done" style="--c:#6B4B29"><img src="icons/37.png" alt=""></span>모은 곳은 흐리게</dt>
+        <dd>마커를 <kbd>Ctrl</kbd>+클릭하면 획득 표시. 로그인하면 여러 PC에서 기록이 맞춰져요(로그인은 선택).</dd>
+      </div>
+    </dl>
+    <table class="keys">
+      <caption>단축키</caption>
+      <tbody>
+        <tr><th scope="row"><kbd>F7</kbd></th><td>자원 고르는 패널 열기·닫기</td></tr>
+        <tr><th scope="row"><kbd>F8</kbd></th><td>위치 다시 찾기</td></tr>
+        <tr><th scope="row"><kbd>F10</kbd></th><td>진단 화면</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="install" id="install" aria-labelledby="install-h">
+    <h2 id="install-h">설치할 때 뜨는 경고</h2>
+    <p class="why">크롬이나 Windows가 "위험할 수 있다"고 한두 번 경고해요. 바이러스가 있어서가 아니라, 개인이 만든 무료 프로그램이라 아직 코드 서명(제작자 확인 도장)이 없고, 새 버전이 나올 때마다 받은 사람 수가 0부터 다시 세어지기 때문이에요. 설치 파일은 꼭 이 페이지의 내려받기 버튼(GitHub)에서만 받아 주세요.</p>
+
+    <ol class="steps">
+      <li>
+        <div class="shot shot-chrome" aria-hidden="true">
+          <div class="cb-row"><span class="cb-ico">!</span><span class="cb-file">Byeolji.Setup.exe<br><small>흔히 다운로드되는 파일이 아닙니다</small></span></div>
+          <div class="cb-btns"><span>삭제</span><span class="hl">유지</span></div>
+        </div>
+        <h3>크롬이 막으면 "유지"</h3>
+        <p>오른쪽 위 다운로드 아이콘을 눌러 "유지"나 "계속"을 눌러요. 안 보이면 주소창에 <code>chrome://downloads</code>.</p>
+      </li>
+      <li>
+        <div class="shot shot-smart" aria-hidden="true">
+          <b>Windows의 PC 보호</b>
+          <span>Microsoft Defender SmartScreen에서 인식할 수 없는 앱의 시작을 차단했습니다.</span>
+          <span class="hl-link">추가 정보</span>
+          <span class="sm-btn">실행 안 함</span>
+        </div>
+        <h3>파란 창은 "추가 정보" → "실행"</h3>
+        <p>처음엔 실행 버튼이 숨어 있어요. "추가 정보"를 누르면 나타나요.</p>
+      </li>
+      <li>
+        <div class="shot shot-uac" aria-hidden="true">
+          <b>이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?</b>
+          <span>Byeolji</span>
+          <span class="uac-btns"><span class="hl">예</span><span>아니요</span></span>
+        </div>
+        <h3>관리자 권한은 "예"</h3>
+        <p>원신이 관리자 권한으로 돌아가서, 같은 권한이어야 게임 위에서 단축키와 마우스가 먹혀요.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div>
+      <h2 id="about-h">만든 사람</h2>
+      <p>원신 좋아하는 대학생이에요. 자원 찾을 때마다 게임 밖으로 나갔다 들어오는 게 너무 귀찮아서 만들었어요. 버그나 건의는 메일로 편하게 보내 주세요.</p>
+      <p class="row">
+        <a class="line" href="mailto:ghdwndks123@naver.com">메일 보내기</a>
+        <a class="line" href="https://ko-fi.com/byeolji">Ko-fi로 후원</a>
+        <a class="line" href="https://qr.kakaopay.com/FJiI97iYg">카카오페이로 후원</a>
+      </p>
+    </div>
+    <div>
+      <h2>개인정보</h2>
+      <p>게임 화면은 위치를 알아보는 데만 쓰고, 내 PC 밖으로 보내지 않아요. 로그인은 선택이에요.</p>
+      <p class="row"><a class="line" href="https://genshin-overlay-api-483165482465.us-central1.run.app/privacy">개인정보처리방침</a></p>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <p>Byeolji는 HoYoverse와 관계없는 개인 팬 프로젝트예요. 원신과 게임 데이터·이미지의 권리는 HoYoverse에 있어요.</p>
+</footer>
+
+<script src="shots/mond.js"></script>
+<script src="site.js"></script>
 </body>
 </html>
