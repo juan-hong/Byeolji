@@ -69,7 +69,10 @@
       dl.href = asset.browser_download_url;
       const v = String(rel.tag_name || '').replace(/^v/i, '');
       const mb = Math.round(asset.size / 1048576);
-      fine.textContent = `${v} · ${mb}MB · 무료 · Windows 10/11 64비트 · HoYoverse와 무관한 팬 프로젝트`;
+      // 버전·크기 + 그 언어의 안내 문장 (언어를 바꾸면 다시)
+      const render = () => { fine.textContent = `${v} · ${mb}MB · ${window.t ? window.t('hero.fine') : ''}`; };
+      render();
+      document.addEventListener('langchange', render);
     })
     .catch(() => {});
 })();

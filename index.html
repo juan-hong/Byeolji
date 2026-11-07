@@ -3,25 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Byeolji · 원신 큰 지도 위에 자원 마커</title>
-<meta name="description" content="원신 PC 큰 지도와 미니맵 위에 자원 위치를 띄워 주는 무료 Windows 오버레이 앱">
+<title data-i18n="meta.title">Byeolji · 원신 큰 지도 위에 자원 마커</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="원신 PC 큰 지도와 미니맵 위에 자원 위치를 띄워 주는 무료 Windows 오버레이 앱">
 <link rel="icon" href="icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
+<!--
+  글귀 고치는 법
+  - 한국어: 이 파일에서 바로 고치면 됩니다 (태그 < > 는 그대로 두고 글자만).
+  - 다른 언어: i18n.js 에서 같은 이름(data-i18n="...")의 문장을 고칩니다.
+-->
 
 <header class="top">
   <a class="brand" href="/"><img src="icon.png" alt="" width="30" height="30">Byeolji</a>
   <nav>
-    <a href="#how">쓰는 법</a>
-    <a href="#install">설치</a>
-    <a href="#about">만든 사람</a>
-    <select class="lang" aria-label="언어">
-      <option>한국어</option><option>English</option><option>日本語</option><option>中文</option>
-      <option>Русский</option><option>Bahasa Indonesia</option><option>Español</option>
+    <a href="#how" data-i18n="nav.how">쓰는 법</a>
+    <a href="#install" data-i18n="nav.install">설치</a>
+    <a href="#about" data-i18n="nav.about">만든 사람</a>
+    <select class="lang" id="lang" aria-label="Language">
+      <option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option>
+      <option value="ru">Русский</option><option value="id">Bahasa Indonesia</option><option value="es">Español</option>
     </select>
   </nav>
 </header>
@@ -34,116 +39,117 @@
       <div class="ticks ticks-left" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
 
       <div class="plate" id="plate">
-        <img class="map" src="shots/mond.webp" alt="원신 지도의 몬드성 주변. 투명 시트를 덮은 쪽에만 자원 마커가 보인다." width="2956" height="1806">
+        <img class="map" src="shots/mond.webp" data-i18n-attr="alt:hero.alt" alt="원신 지도의 몬드성 주변. 투명 시트를 덮은 쪽에만 자원 마커가 보인다." width="2956" height="1806">
         <div class="film" id="film" aria-hidden="true">
           <div class="markers" id="markers"></div>
           <span class="reg reg-tr"></span><span class="reg reg-br"></span>
         </div>
-        <div class="edge" id="edge" role="slider" tabindex="0" aria-label="투명 시트 위치 (덮인 쪽에 마커가 보여요)"
+        <div class="edge" id="edge" role="slider" tabindex="0" data-i18n-attr="aria-label:hero.slider" aria-label="투명 시트 위치 (덮인 쪽에 마커가 보여요)"
              aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
           <span class="knob" aria-hidden="true"><svg viewBox="-26 -26 52 52"><path d="M0-22 4.4-4.4 22 0 4.4 4.4 0 22-4.4 4.4-22 0-4.4-4.4z"/><circle r="3.6"/></svg></span>
         </div>
-        <p class="pencil" aria-hidden="true">← 끌어 보세요</p>
+        <p class="pencil" aria-hidden="true" data-i18n="hero.drag">← 끌어 보세요</p>
       </div>
 
       <div class="label">
-        <h1 id="title">지도 위에<br>별지 한 장.</h1>
-        <p class="lede">원신 PC버전에서 큰 지도와 미니맵 위에 자원 위치를 바로 띄워 주는 무료 원신 보조 프로그램</p>
+        <h1 id="title" data-i18n="hero.title">지도 위에<br>별지 한 장.</h1>
+        <p class="lede" data-i18n="hero.lede">원신 PC 버전에서 큰 지도와 미니맵 위에 자원 위치를 바로 띄워 주는 무료 원신 보조 프로그램입니다.</p>
         <a class="dl" id="dl" href="https://github.com/juan-hong/Byeolji-releases/releases/latest">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11m0 0-4.5-4.5m4.5 4.5 4.5-4.5M4.5 19.5h15"/></svg>
-          <span>Windows용 내려받기</span>
+          <span data-i18n="hero.download">Windows용 내려받기</span>
         </a>
-        <p class="fine" id="fine">무료 · Windows 10/11 64비트 · HoYoverse와 무관한 팬 프로젝트</p>
+        <p class="fine" id="fine" data-i18n="hero.fine">무료 · Windows 10/11 64비트 · HoYoverse와 무관한 팬 프로젝트</p>
       </div>
     </div>
-    <p class="caption">몬드성 주변 지도에 Byeolji 데이터로 워프 포인트, 일곱신상, 민들레 씨앗, 풍차 국화 등의 일부를 144곳을 앱과 같은 방식으로 찍은 모습.</p>
+    <p class="caption" data-i18n="hero.caption">몬드성 주변 지도에 Byeolji 데이터로 워프 포인트, 일곱신상, 민들레 씨앗, 풍차 국화 등 144곳을 앱과 같은 방식으로 찍은 모습.</p>
   </section>
 
   <!-- 범례: 지도 아래 붙는 설명 상자처럼 -->
   <section class="legend" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">범례</h2>
+    <h2 id="how-h" data-i18n="how.title">범례</h2>
     <dl>
       <div>
-        <dt><span class="mk" style="--c:#295A6B"><img src="icons/3.png" alt=""></span>(<kbd>M</kbd>)을 열어 지도를 열면</dt>
-        <dd>지도(<kbd>M</kbd>)를 열고 끌고 확대해도 화면을 알아보고 지정한 마커가 따라옵니다. 지하 층도, 컨트롤러로 조작모드, 여러가지 비율의 모니터도 지원합니다.</dd>
+        <dt><span class="mk" style="--c:#295A6B"><img src="icons/3.png" alt=""></span><span data-i18n="how.map.t"><kbd>M</kbd>으로 지도를 열면</span></dt>
+        <dd data-i18n="how.map.d">지도를 열고 끌고 확대해도 화면을 알아보고 지정한 마커가 따라옵니다. 지하 층도, 컨트롤러 조작 모드도, 여러 비율의 모니터도 지원합니다.</dd>
       </div>
       <div>
-        <dt><span class="mk mk-mini" style="--c:#6B4F29"><img src="icons/43.png" alt=""></span>걸어 다닐 땐 미니맵에</dt>
-        <dd>미니맵 원 안에도 가까운 자원이 뜨게 됩니다. 지도를 다시 열 필요가 없습니다.</dd>
+        <dt><span class="mk mk-mini" style="--c:#6B4F29"><img src="icons/43.png" alt=""></span><span data-i18n="how.mini.t">걸어 다닐 땐 미니맵에</span></dt>
+        <dd data-i18n="how.mini.d">미니맵 원 안에도 가까운 자원이 뜹니다. 지도를 다시 열 필요가 없습니다.</dd>
       </div>
       <div>
-        <dt><span class="mk mk-done" style="--c:#6B4B29"><img src="icons/37.png" alt=""></span>모은 곳은 흐리게</dt>
-        <dd>마커를 <kbd>Ctrl</kbd>+클릭하면 획득 표시. 로그인하면 여러 PC에서 기록이 동기화 됩니다(로그인은 선택사항).</dd>
+        <dt><span class="mk mk-done" style="--c:#6B4B29"><img src="icons/37.png" alt=""></span><span data-i18n="how.done.t">모은 곳은 흐리게</span></dt>
+        <dd data-i18n="how.done.d">마커를 <kbd>Ctrl</kbd>+클릭하면 획득 표시. 로그인하면 여러 PC에서 기록이 동기화됩니다(로그인은 선택 사항).</dd>
       </div>
     </dl>
     <table class="keys">
-      <caption>단축키</caption>
+      <caption data-i18n="keys.title">단축키</caption>
       <tbody>
-        <tr><th scope="row"><kbd>F7</kbd></th><td>자원 고르는 패널 열기·닫기</td></tr>
-        <tr><th scope="row"><kbd>F8</kbd></th><td>위치 다시 찾기</td></tr>
-        <tr><th scope="row"><kbd>F10</kbd></th><td>진단 화면</td></tr>
+        <tr><th scope="row"><kbd>F7</kbd></th><td data-i18n="keys.f7">자원 고르는 패널 열기·닫기</td></tr>
+        <tr><th scope="row"><kbd>F8</kbd></th><td data-i18n="keys.f8">위치 다시 찾기</td></tr>
+        <tr><th scope="row"><kbd>F10</kbd></th><td data-i18n="keys.f10">진단 화면</td></tr>
       </tbody>
     </table>
   </section>
 
   <section class="install" id="install" aria-labelledby="install-h">
-    <h2 id="install-h">설치할 때 뜨는 경고</h2>
-    <p class="why">크롬이나 Windows가 "위험할 수 있다"고 경고가 뜹니다. 바이러스가 있어서가 아니라, 개인이 만든 무료 프로그램이라 아직 코드 서명(제작자 확인 도장)이 없고, 새 버전이 나올 때마다 받은 사람 수가 0부터 다시 세어지기 때문입니다. 설치 파일은 꼭 이 페이지의 내려받기 버튼(GitHub)에서만 받아 주세요.</p>
+    <h2 id="install-h" data-i18n="install.title">설치할 때 뜨는 경고</h2>
+    <p class="why" data-i18n="install.why">크롬이나 Windows가 "위험할 수 있다"고 경고합니다. 바이러스가 있어서가 아니라, 개인이 만든 무료 프로그램이라 아직 코드 서명(제작자 확인 도장)이 없고, 새 버전이 나올 때마다 받은 사람 수가 0부터 다시 세어지기 때문입니다. 설치 파일은 꼭 이 페이지의 내려받기 버튼(GitHub)에서만 받아 주세요.</p>
 
     <ol class="steps">
       <li>
         <div class="shot shot-chrome" aria-hidden="true">
-          <div class="cb-row"><span class="cb-ico">!</span><span class="cb-file">Byeolji.Setup.exe<br><small>흔히 다운로드되는 파일이 아닙니다</small></span></div>
-          <div class="cb-btns"><span>삭제</span><span class="hl">유지</span></div>
+          <div class="cb-row"><span class="cb-ico">!</span><span class="cb-file">Byeolji.Setup.exe<br><small data-i18n="ui.chrome.msg">흔히 다운로드되는 파일이 아닙니다</small></span></div>
+          <div class="cb-btns"><span data-i18n="ui.chrome.delete">삭제</span><span class="hl" data-i18n="ui.chrome.keep">유지</span></div>
         </div>
-        <h3>크롬이 막으면 "유지"</h3>
-        <p>오른쪽 위 다운로드 아이콘을 눌러 "유지"나 "계속"을 눌러주세요. 안 보이면 주소창에 <code>chrome://downloads</code>.</p>
+        <h3 data-i18n="install.s1.t">크롬이 막으면 "유지"</h3>
+        <p data-i18n="install.s1.d">오른쪽 위 다운로드 아이콘을 눌러 "유지"나 "계속"을 눌러 주세요. 안 보이면 주소창에 <code>chrome://downloads</code>를 입력하세요.</p>
       </li>
       <li>
         <div class="shot shot-smart" aria-hidden="true">
-          <b>Windows의 PC 보호</b>
-          <span>Microsoft Defender SmartScreen에서 인식할 수 없는 앱의 시작을 차단했습니다.</span>
-          <span class="hl-link">추가 정보</span>
-          <span class="sm-btn">실행 안 함</span>
+          <b data-i18n="ui.smart.title">Windows의 PC 보호</b>
+          <span data-i18n="ui.smart.msg">Microsoft Defender SmartScreen에서 인식할 수 없는 앱의 시작을 차단했습니다.</span>
+          <span class="hl-link" data-i18n="ui.smart.more">추가 정보</span>
+          <span class="sm-btn" data-i18n="ui.smart.dont">실행 안 함</span>
         </div>
-        <h3>파란 창은 "추가 정보" → "실행"</h3>
-        <p>처음엔 실행 버튼이 숨어 있습니다. "추가 정보"를 누르면 나타나요.</p>
+        <h3 data-i18n="install.s2.t">파란 창은 "추가 정보" → "실행"</h3>
+        <p data-i18n="install.s2.d">처음엔 실행 버튼이 숨어 있습니다. "추가 정보"를 누르면 나타납니다.</p>
       </li>
       <li>
         <div class="shot shot-uac" aria-hidden="true">
-          <b>이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?</b>
+          <b data-i18n="ui.uac.msg">이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?</b>
           <span>Byeolji</span>
-          <span class="uac-btns"><span class="hl">예</span><span>아니요</span></span>
+          <span class="uac-btns"><span class="hl" data-i18n="ui.uac.yes">예</span><span data-i18n="ui.uac.no">아니요</span></span>
         </div>
-        <h3>관리자 권한은 "예"</h3>
-        <p>원신이 관리자 권한으로 돌아가서, 같은 권한이어야 게임 위에서 단축키와 마우스를 인식할 수있습니다.</p>
+        <h3 data-i18n="install.s3.t">관리자 권한은 "예"</h3>
+        <p data-i18n="install.s3.d">원신이 관리자 권한으로 돌아가서, 같은 권한이어야 게임 위에서 단축키와 마우스를 인식할 수 있습니다.</p>
       </li>
     </ol>
   </section>
 
   <section class="about" id="about" aria-labelledby="about-h">
     <div>
-      <h2 id="about-h">만든 사람</h2>
-      <p>원신 좋아하는 대학생이에요. 자원들의 위치를 오버레이로 표현하고 싶어서 만들었습니다. 사용자간의 피드백을 굉장히 중요하게 생각합니다. 발견하신 사소한 버그나 건의는 메일로 편하게 보내 주세요.</p>
+      <h2 id="about-h" data-i18n="about.title">만든 사람</h2>
+      <p data-i18n="about.text">원신 좋아하는 대학생이에요. 자원들의 위치를 오버레이로 보여 주고 싶어서 만들었습니다. 사용자 피드백을 굉장히 중요하게 생각합니다. 발견하신 사소한 버그나 건의는 메일로 편하게 보내 주세요.</p>
       <p class="row">
-        <a class="line" href="mailto:ghdwndks123@naver.com">ghdwndks123@naver.com(메일)</a>
-        <a class="line" href="https://ko-fi.com/byeolji">Ko-fi로 후원</a>
-        <a class="line" href="https://qr.kakaopay.com/FJiI97iYg">카카오페이로 후원</a>
+        <a class="line" href="mailto:ghdwndks123@naver.com" data-i18n="about.mail">ghdwndks123@naver.com(메일)</a>
+        <a class="line" href="https://ko-fi.com/byeolji" data-i18n="about.kofi">Ko-fi로 후원</a>
+        <a class="line" href="https://qr.kakaopay.com/FJiI97iYg" data-only="ko">카카오페이로 후원</a>
       </p>
     </div>
     <div>
-      <h2>개인정보</h2>
-      <p>게임 화면은 위치를 알아보는 데만 쓰고, 절대 내 PC 밖으로 보내지 않습니다. 또한 로그인은 동기화에만 사용이 되며 선택사항 입니다.</p>
-      <p class="row"><a class="line" href="https://genshin-overlay-api-483165482465.us-central1.run.app/privacy">개인정보처리방침</a></p>
+      <h2 data-i18n="privacy.title">개인정보</h2>
+      <p data-i18n="privacy.text">게임 화면은 위치를 알아보는 데만 쓰고, 절대 내 PC 밖으로 보내지 않습니다. 로그인은 동기화에만 쓰이며 선택 사항입니다.</p>
+      <p class="row"><a class="line" href="https://genshin-overlay-api-483165482465.us-central1.run.app/privacy" data-i18n="privacy.link">개인정보처리방침</a></p>
     </div>
   </section>
 </main>
 
 <footer>
-  <p>Byeolji는 HoYoverse와 관계없는 개인 팬 프로젝트이며. 원신과 게임 데이터·이미지의 권리는 HoYoverse에 있습니다.</p>
+  <p data-i18n="footer">Byeolji는 HoYoverse와 관계없는 개인 팬 프로젝트이며, 원신과 게임 데이터·이미지의 권리는 HoYoverse에 있습니다.</p>
 </footer>
 
 <script src="shots/mond.js"></script>
+<script src="i18n.js"></script>
 <script src="site.js"></script>
 </body>
 </html>

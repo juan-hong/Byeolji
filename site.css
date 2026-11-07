@@ -9,6 +9,15 @@
   --gold: #F4C150;       /* 북극성 */
   --gold-ink: #2A2207;
   --font: "Gowun Batang", "Noto Serif KR", "Noto Serif JP", "Noto Serif SC", serif;
+}
+/* 언어별 글꼴: 고운바탕에 없는 글자(일본어·중국어·키릴)는 같은 명조 계열로 */
+:lang(ja) { --font: "Noto Serif JP", serif; }
+:lang(zh-CN) { --font: "Noto Serif SC", serif; }
+:lang(ru) { --font: "Noto Serif", serif; }
+:lang(en), :lang(id), :lang(es) { --font: "Gowun Batang", "Noto Serif", serif; }
+/* 띄어쓰기 없는 일본어·중국어는 글자 단위로 줄바꿈 (keep-all 은 한국어용) */
+html:lang(ja) body, html:lang(zh-CN) body { word-break: normal; line-break: strict; }
+:root {
   --ease: cubic-bezier(.16, 1, .3, 1);
 }
 
