@@ -3,8 +3,8 @@
 // <br>(줄바꿈), <kbd>…</kbd>(키 모양), <code>…</code> 는 그대로 두세요.
 window.I18N = {
   en: {
-    'meta.title': 'Byeolji · Resource markers on your Genshin map',
-    'meta.desc': 'A free Windows overlay that shows resource locations right on the Genshin Impact PC map and minimap.',
+    'meta.title': 'Byeolji · Genshin Impact map overlay with resource markers',
+    'meta.desc': 'Free Windows overlay for Genshin Impact PC: see resource locations (local specialties, ores, materials) right on the in-game map and minimap, no alt-tabbing to an interactive map.',
     'nav.how': 'How it works', 'nav.install': 'Install', 'nav.about': 'About',
     'hero.alt': 'The Genshin map around Mondstadt. Resource markers show only under the transparent sheet.',
     'hero.slider': 'Transparent sheet position (markers show where it covers)',
