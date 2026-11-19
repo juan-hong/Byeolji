@@ -14,7 +14,7 @@
     el.style.left = x + '%';
     el.style.top = y + '%';
     el.style.setProperty('--c', kind.color);
-    el.innerHTML = `<img src="icons/${kind.icon}.png" alt="">`;
+    el.innerHTML = `<img src="/icons/${kind.icon}.png" alt="">`;
     box.appendChild(el);
   }
 

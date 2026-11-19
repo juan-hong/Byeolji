@@ -1,0 +1,6 @@
+# 예전 주소 -> 새 주소
+/map /genshin/map/ 301
+/map/ /genshin/map/ 301
+/map/* /genshin/map/:splat 301
+/genshin /genshin/map/ 302
+/genshin/ /genshin/map/ 302

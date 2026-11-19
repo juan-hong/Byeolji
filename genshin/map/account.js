@@ -6,6 +6,8 @@ import {
   sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup, signOut,
 } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 
+// 게임 구분 (서버 /v1/progress?game=)
+const GAME = 'genshin';
 const API = 'https://genshin-overlay-api-483165482465.us-central1.run.app';
 const app = initializeApp({ apiKey: 'AIzaSyAp8rs5JtHK0mQkC0gITrGY7YIPPDMwZd4', authDomain: 'genshin-overlay.firebaseapp.com', projectId: 'genshin-overlay' });
 const auth = getAuth(app);
@@ -44,12 +46,12 @@ async function call(method, path, body) {
 async function pullAndMerge() {
   setStatus(t('syncing'));
   try {
-    const data = await call('GET', '/v1/progress');
+    const data = await call('GET', `/v1/progress?game=${GAME}`);
     const remote = new Set(data?.collected || []);
     const local = new Set(mapApi()?.progress() || []);
     const merged = new Set([...remote, ...local]);
     if (merged.size !== local.size) mapApi()?.setProgress([...merged]);
-    if (merged.size !== remote.size) await call('PUT', '/v1/progress', { collected: [...merged] });
+    if (merged.size !== remote.size) await call('PUT', `/v1/progress?game=${GAME}`, { collected: [...merged] });
     setStatus(t('synced'));
   } catch (e) {
     console.warn(e);
@@ -64,7 +66,7 @@ async function push() {
   if (!user) return;
   setStatus(t('syncing'));
   try {
-    await call('PUT', '/v1/progress', { collected: mapApi()?.progress() || [] });
+    await call('PUT', `/v1/progress?game=${GAME}`, { collected: mapApi()?.progress() || [] });
     setStatus(t('synced'));
   } catch (e) {
     console.warn(e);
