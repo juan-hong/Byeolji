@@ -13,6 +13,17 @@
 <link rel="alternate" hreflang="id" href="https://byeolji.app/app/?lang=id">
 <link rel="alternate" hreflang="es" href="https://byeolji.app/app/?lang=es">
 <link rel="alternate" hreflang="x-default" href="https://byeolji.app/app/">
+<script>
+// 언어 주소마다 자기 자신이 대표 주소. 다른 쿼리는 버림
+(() => {
+  const q = new URLSearchParams(location.search).get('lang');
+  const ok = ['ko', 'en', 'ja', 'zh', 'ru', 'id', 'es'].includes(q);
+  const l = document.createElement('link');
+  l.rel = 'canonical';
+  l.href = 'https://byeolji.app/app/' + (ok ? '?lang=' + q : '');
+  document.head.appendChild(l);
+})();
+</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Byeolji">
 <meta property="og:url" content="https://byeolji.app/app/">
