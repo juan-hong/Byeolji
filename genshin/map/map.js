@@ -64,7 +64,8 @@
     const crs = L.extend({}, L.CRS.Simple, { transformation: new L.Transformation(1, 0, 1, 0) });
     const bounds = L.latLngBounds([0, 0], [H, W]);
     map = L.map('map', {
-      crs, minZoom: -5, maxZoom: 2, zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 90,
+      // 최대 0.5: 원본 1px 를 화면 1.4px 까지만 (더 키우면 흐려짐)
+      crs, minZoom: -5, maxZoom: 0.5, zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 90,
       maxBounds: bounds.pad(0.25), maxBoundsViscosity: 0.6, attributionControl: true, zoomControl: false,
     });
     L.control.zoom({ position: 'bottomright' }).addTo(map);
@@ -78,7 +79,7 @@
       getTileUrl: (c) => (have[-c.z]?.has(`${c.x}_${c.y}`) ? `tiles/${-c.z}/${c.x}_${c.y}.webp` : EMPTY),
     });
     new Tiles('', {
-      tileSize: tile, minNativeZoom: -(levels - 1), maxNativeZoom: 0, minZoom: -5, maxZoom: 2, bounds, noWrap: true,
+      tileSize: tile, minNativeZoom: -(levels - 1), maxNativeZoom: 0, minZoom: -5, maxZoom: 0.5, bounds, noWrap: true,
       keepBuffer: 3, errorTileUrl: EMPTY,
     }).addTo(map);
     markerLayer = L.layerGroup().addTo(map);
@@ -181,7 +182,7 @@
       const m = L.marker([c.y, c.x], { icon, keyboard: false, title: nameOf(first.card) });
       m.on('click', () => {
         if (single) toggle(first.p[0]);
-        else map.setView([c.y, c.x], Math.min(map.getZoom() + 2, 0));
+        else map.setView([c.y, c.x], Math.min(map.getZoom() + 2, 0.5));
       });
       markerLayer.addLayer(m);
     }
