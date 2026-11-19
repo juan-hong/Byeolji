@@ -71,7 +71,9 @@
     L.control.zoom({ position: 'bottomright' }).addTo(map);
     map.attributionControl.setPrefix('').addAttribution('Map © HoYoverse · <a href="/">Byeolji</a>');
     // 밑그림: 확대·이동 중 타일이 늦어도 빈칸 안 보이게
-    L.imageOverlay('tiles/base.webp', bounds, { interactive: false }).addTo(map);
+    // 밑그림 전용 층: 타일(200) 아래. 기본 오버레이 층(400)에 두면 선명한 타일을 덮어 버림
+    map.createPane('base').style.zIndex = 150;
+    L.imageOverlay('tiles/base.webp', bounds, { interactive: false, pane: 'base' }).addTo(map);
     // 바다뿐인 칸은 파일이 없음: 요청 안 하고 투명
     const have = Object.fromEntries(Object.entries(data.layout.have).map(([lv, list]) => [lv, new Set(list)]));
     const EMPTY = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
@@ -79,7 +81,9 @@
       getTileUrl: (c) => (have[-c.z]?.has(`${c.x}_${c.y}`) ? `tiles/${-c.z}/${c.x}_${c.y}.webp` : EMPTY),
     });
     new Tiles('', {
-      tileSize: tile, minNativeZoom: -(levels - 1), maxNativeZoom: 0, minZoom: -5, maxZoom: 0.5, bounds, noWrap: true,
+      tileSize: tile, minNativeZoom: -(levels - 1), maxNativeZoom: 0, minZoom: -5,
+      // 지도 상한(0.5)보다 커야 함: Leaflet 이 줌을 반올림(0.5 -> 1)해서 타일을 고름
+      maxZoom: 2, bounds, noWrap: true,
       keepBuffer: 3, errorTileUrl: EMPTY,
     }).addTo(map);
     markerLayer = L.layerGroup().addTo(map);
