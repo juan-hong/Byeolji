@@ -25,6 +25,8 @@
   .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: auto; }
   .hub-top .brand img { border-radius: 7px; }
   .dl-menu { position: relative; }
+  .hub-top .brand, .dl-menu summary { white-space: nowrap; }
+  @media (max-width: 420px) { .hub-top { gap: 8px; } .hub-top select { max-width: 110px; } }
   .dl-menu summary { list-style: none; cursor: pointer; color: var(--dim); border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 26px 4px 10px; position: relative; }
   .dl-menu summary::-webkit-details-marker { display: none; }
   .dl-menu summary::after { content: ""; position: absolute; right: 10px; top: 50%; width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); }
@@ -43,7 +45,7 @@
   .game {
     position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 220px; padding: 18px;
     border: 1px solid rgba(234, 227, 204, .22); border-radius: 16px; overflow: hidden; text-decoration: none; color: var(--text);
-    background: linear-gradient(180deg, rgba(11, 37, 46, 0) 30%, rgba(11, 37, 46, .92) 85%), var(--bg, #123744) center / cover no-repeat;
+    background: linear-gradient(180deg, rgba(11, 37, 46, 0) 30%, rgba(11, 37, 46, .92) 85%), var(--bg, #123744) var(--pos, center) / cover no-repeat;
     transition: transform .2s var(--ease), border-color .2s;
   }
   a.game:hover { transform: translateY(-3px); border-color: var(--gold); }
@@ -77,16 +79,16 @@
   </section>
 
   <div class="games">
-    <a class="game" href="/genshin/map/" style="--bg: url('/shots/mond.webp')">
+    <a class="game" href="/genshin/map/" style="--bg: url('/shots/game-genshin.webp'); --pos: 62% 30%">
       <h2 data-t="genshin">원신</h2>
       <span><span data-t="genshinDesc">자원 지도 · PC 오버레이 · 안드로이드</span> <span class="go">→</span></span>
     </a>
-    <!-- 준비 중 게임: 흑백. 이미지는 shots/game-*.webp (없으면 바탕색만) -->
-    <div class="game soon" aria-disabled="true" style="--bg: url('/shots/game-wuwa.webp')">
+    <!-- 준비 중 게임: 흑백 -->
+    <div class="game soon" aria-disabled="true" style="--bg: url('/shots/game-wuwa.webp'); --pos: 45% 25%">
       <span class="tag" data-t="soon">준비 중</span>
       <h2 data-t="wuwa">명조</h2>
     </div>
-    <div class="game soon" aria-disabled="true" style="--bg: url('/shots/game-hsr.webp')">
+    <div class="game soon" aria-disabled="true" style="--bg: url('/shots/game-hsr.webp'); --pos: 50% 30%">
       <span class="tag" data-t="soon">준비 중</span>
       <h2 data-t="hsr">붕괴: 스타레일</h2>
     </div>
