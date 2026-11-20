@@ -24,15 +24,21 @@
   .hub-top { display: flex; align-items: center; gap: 14px; padding: 18px 0; }
   .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: auto; }
   .hub-top .brand img { border-radius: 7px; }
-  .hub-top a.app { color: var(--dim); text-decoration: none; }
-  .hub-top a.app:hover { color: var(--text); }
+  .dl-menu { position: relative; }
+  .dl-menu summary { list-style: none; cursor: pointer; color: var(--dim); border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 26px 4px 10px; position: relative; }
+  .dl-menu summary::-webkit-details-marker { display: none; }
+  .dl-menu summary::after { content: ""; position: absolute; right: 10px; top: 50%; width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); }
+  .dl-menu summary:hover, .dl-menu[open] summary { color: var(--text); }
+  .dl-list { position: absolute; right: 0; top: calc(100% + 6px); min-width: 170px; z-index: 5; display: flex; flex-direction: column; padding: 6px; background: var(--ink); border: 1px solid rgba(234, 227, 204, .25); border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
+  .dl-list a, .dl-list .off { padding: 7px 10px; border-radius: 7px; text-decoration: none; color: var(--text); white-space: nowrap; }
+  .dl-list a:hover { background: rgba(234, 227, 204, .08); color: var(--gold); }
+  .dl-list .off { color: var(--dim); opacity: .6; cursor: default; }
+  .dl-list small { font-size: 12px; }
   .hub-top select { background: transparent; color: var(--text); border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 6px; font: inherit; }
   .hub-top option { background: var(--ink); }
   .hero { text-align: center; padding: 56px 0 40px; }
   .hero img { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 8px 30px rgba(0, 0, 0, .35); }
   .hero h1 { font-size: clamp(30px, 6vw, 46px); margin: 18px 0 6px; letter-spacing: .02em; }
-  .hero p { color: var(--dim); margin: 0; }
-  .pick { color: var(--gold); text-align: center; margin: 8px 0 18px; font-size: 15px; }
   .games { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
   .game {
     position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 220px; padding: 18px;
@@ -44,17 +50,21 @@
   .game h2 { margin: 0; font-size: 21px; }
   .game span { color: var(--dim); font-size: 14px; }
   .game .go { color: var(--gold); }
-  .game.soon { filter: saturate(.3); opacity: .7; cursor: default; }
+  .game.soon { filter: grayscale(1); opacity: .75; cursor: default; }
   .game .tag { position: absolute; top: 14px; right: 14px; font-size: 12px; border: 1px solid rgba(234, 227, 204, .4); border-radius: 99px; padding: 1px 10px; }
-  .sync { margin: 40px auto 0; max-width: 640px; text-align: center; color: var(--dim); font-size: 15px; }
-  .sync a { color: var(--gold); }
 </style>
 </head>
 <body>
 <div class="hub">
   <header class="hub-top">
     <a class="brand" href="/"><img src="/icon.png" alt="" width="30" height="30">Byeolji</a>
-    <a class="app" href="/app/" data-t="pcApp">PC 앱</a>
+    <details class="dl-menu">
+      <summary data-t="download">다운로드</summary>
+      <div class="dl-list">
+        <a href="/app/" data-t="windows">Windows</a>
+        <span class="off" aria-disabled="true"><span data-t="android">Android</span> <small data-t="soon">준비 중</small></span>
+      </div>
+    </details>
     <select id="lang" aria-label="Language">
       <option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option>
       <option value="ru">Русский</option><option value="id">Bahasa Indonesia</option><option value="es">Español</option>
@@ -64,42 +74,39 @@
   <section class="hero">
     <img src="/icon.png" alt="Byeolji">
     <h1>Byeolji</h1>
-    <p data-t="tagline">게임 지도 위에 띄우는 별 하나</p>
   </section>
 
-  <p class="pick" data-t="pick">게임을 고르세요</p>
   <div class="games">
     <a class="game" href="/genshin/map/" style="--bg: url('/shots/mond.webp')">
       <h2 data-t="genshin">원신</h2>
       <span><span data-t="genshinDesc">자원 지도 · PC 오버레이 · 안드로이드</span> <span class="go">→</span></span>
     </a>
-    <div class="game soon" aria-disabled="true">
+    <!-- 준비 중 게임: 흑백. 이미지는 shots/game-*.webp (없으면 바탕색만) -->
+    <div class="game soon" aria-disabled="true" style="--bg: url('/shots/game-wuwa.webp')">
       <span class="tag" data-t="soon">준비 중</span>
       <h2 data-t="wuwa">명조</h2>
     </div>
-    <div class="game soon" aria-disabled="true">
+    <div class="game soon" aria-disabled="true" style="--bg: url('/shots/game-hsr.webp')">
       <span class="tag" data-t="soon">준비 중</span>
       <h2 data-t="hsr">붕괴: 스타레일</h2>
     </div>
   </div>
-
-  <p class="sync"><span data-t="sync">웹·PC·안드로이드 어디서든 같은 계정으로 획득 기록이 이어집니다.</span> <a href="/app/" data-t="getApp">PC 앱 받기</a></p>
 </div>
 <script>
 (() => {
   const S = {
-    en: { pcApp: 'PC app', tagline: 'A star on your game map', pick: 'Choose a game', genshin: 'Genshin Impact', genshinDesc: 'Resource map · PC overlay · Android',
-      soon: 'Coming soon', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', sync: 'Your found spots stay in sync across web, PC and Android with one account.', getApp: 'Get the PC app' },
-    ja: { pcApp: 'PCアプリ', tagline: 'ゲームマップに浮かぶひとつの星', pick: 'ゲームを選んでください', genshin: '原神', genshinDesc: '資源マップ · PCオーバーレイ · Android',
-      soon: '準備中', wuwa: '鳴潮', hsr: '崩壊：スターレイル', sync: 'Web・PC・Android でひとつのアカウントに記録が同期されます。', getApp: 'PCアプリ' },
-    zh: { pcApp: 'PC 应用', tagline: '游戏地图上的一颗星', pick: '选择游戏', genshin: '原神', genshinDesc: '资源地图 · PC 悬浮窗 · 安卓',
-      soon: '即将推出', wuwa: '鸣潮', hsr: '崩坏：星穹铁道', sync: '网页、PC、安卓同一账号同步获取记录。', getApp: '下载 PC 应用' },
-    ru: { pcApp: 'Приложение для ПК', tagline: 'Звезда на карте вашей игры', pick: 'Выберите игру', genshin: 'Genshin Impact', genshinDesc: 'Карта ресурсов · оверлей для ПК · Android',
-      soon: 'Скоро', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', sync: 'Отметки синхронизируются между вебом, ПК и Android по одному аккаунту.', getApp: 'Скачать для ПК' },
-    id: { pcApp: 'Aplikasi PC', tagline: 'Sebuah bintang di peta gimmu', pick: 'Pilih gim', genshin: 'Genshin Impact', genshinDesc: 'Peta sumber daya · overlay PC · Android',
-      soon: 'Segera hadir', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', sync: 'Tanda temuanmu tersinkron di web, PC, dan Android dengan satu akun.', getApp: 'Unduh aplikasi PC' },
-    es: { pcApp: 'App de PC', tagline: 'Una estrella en el mapa de tu juego', pick: 'Elige un juego', genshin: 'Genshin Impact', genshinDesc: 'Mapa de recursos · overlay de PC · Android',
-      soon: 'Próximamente', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', sync: 'Tus hallazgos se sincronizan en web, PC y Android con una sola cuenta.', getApp: 'Descargar para PC' },
+    en: { download: 'Download', windows: 'Windows', android: 'Android', genshin: 'Genshin Impact', genshinDesc: 'Resource map · PC overlay · Android',
+      soon: 'Coming soon', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', },
+    ja: { download: 'ダウンロード', windows: 'Windows', android: 'Android', genshin: '原神', genshinDesc: '資源マップ · PCオーバーレイ · Android',
+      soon: '準備中', wuwa: '鳴潮', hsr: '崩壊：スターレイル', },
+    zh: { download: '下载', windows: 'Windows', android: 'Android', genshin: '原神', genshinDesc: '资源地图 · PC 悬浮窗 · 安卓',
+      soon: '即将推出', wuwa: '鸣潮', hsr: '崩坏：星穹铁道', },
+    ru: { download: 'Скачать', windows: 'Windows', android: 'Android', genshin: 'Genshin Impact', genshinDesc: 'Карта ресурсов · оверлей для ПК · Android',
+      soon: 'Скоро', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', },
+    id: { download: 'Unduh', windows: 'Windows', android: 'Android', genshin: 'Genshin Impact', genshinDesc: 'Peta sumber daya · overlay PC · Android',
+      soon: 'Segera hadir', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', },
+    es: { download: 'Descargar', windows: 'Windows', android: 'Android', genshin: 'Genshin Impact', genshinDesc: 'Mapa de recursos · overlay de PC · Android',
+      soon: 'Próximamente', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', },
   };
   const LANGS = ['ko', 'en', 'ja', 'zh', 'ru', 'id', 'es'];
   const ko = {};
@@ -121,6 +128,9 @@
     apply(e.target.value);
   });
   apply(pick());
+  // 다운로드 메뉴: 바깥 누르면 닫음
+  const menu = document.querySelector('.dl-menu');
+  document.addEventListener('click', (e) => { if (!menu.contains(e.target)) menu.open = false; });
 })();
 </script>
 </body>
