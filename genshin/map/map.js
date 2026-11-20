@@ -296,7 +296,8 @@
 
   function renderRegion() {
     const auto = state.regionAuto;
-    const value = auto ? (state.area == null ? t('notLocated') : regionName(state.area)) : regionName(state.region);
+    // 자동인데 근처에 지점이 없으면(전체를 보거나 바다) 전체 목록
+    const value = auto ? regionName(state.area) : regionName(state.region);
     $('region-btn').innerHTML = `<span class="ico">${icon(auto ? 'loc' : 'pin')}</span>
       <span class="lb">${esc(auto ? t('here') : t('region'))}</span><span class="val">${esc(value)}</span>
       <span class="mode">${esc(auto ? t('autoRegion') : t('fixedRegion'))}</span><span class="chev">${icon('down')}</span>`;
