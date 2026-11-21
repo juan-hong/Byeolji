@@ -36,6 +36,10 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
   background: var(--panel); border-right: 1px solid var(--edge); z-index: 1000; zoom: var(--ui);
   font-size: calc(14px * var(--txt));
 }
+/* 오른쪽 끝 폭 조절 손잡이 */
+#panel > div.grip { position: absolute; top: 0; right: -4px; width: 8px; height: 100%; cursor: ew-resize; z-index: 5; touch-action: none; }
+.grip::after { content: ""; position: absolute; top: 50%; left: 3px; width: 2px; height: 36px; margin-top: -18px; border-radius: 1px; background: var(--edge); opacity: 0; transition: opacity .15s; }
+.grip:hover::after, .grip:active::after { opacity: 1; }
 /* 테마 수채화 풍경: 아래쪽에 옅게, 글자 많은 위쪽은 바탕색으로 덮음 (앱 ThemeBackdrop) */
 .backdrop { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s; }
 .backdrop::before { content: ""; position: absolute; inset: 0; background: var(--bg-img) center bottom / cover no-repeat; opacity: .4; }
@@ -223,5 +227,6 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
   #panel { position: fixed; inset: 0 auto 0 0; width: min(92vw, 380px); transform: translateX(-102%); transition: transform .22s ease; box-shadow: 4px 0 24px rgba(0, 0, 0, .5); }
   #panel.open { transform: none; }
   #panel.open ~ #open-panel { display: none; }
+  .grip { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

@@ -497,6 +497,48 @@
     document.querySelectorAll('[data-back]').forEach((b) => b.addEventListener('click', () => showView('main')));
     $('open-panel').addEventListener('click', () => $('panel').classList.add('open'));
     $('close-panel').addEventListener('click', () => $('panel').classList.remove('open'));
+    bindPanelResize();
+  }
+
+  // 패널 오른쪽 끝을 끌어 폭 조절 (넓은 화면만). 폭은 패널 크기 배율 적용 전 px 로 저장
+  const PANEL_W = [260, 720];
+  function bindPanelResize() {
+    const panel = $('panel');
+    const grip = document.createElement('div');
+    grip.className = 'grip';
+    grip.setAttribute('role', 'separator');
+    grip.setAttribute('aria-orientation', 'vertical');
+    panel.appendChild(grip);
+    const apply = (w) => {
+      w = Math.round(Math.min(PANEL_W[1], Math.max(PANEL_W[0], w)));
+      document.documentElement.style.setProperty('--panel-w', w + 'px');
+      if (map) map.invalidateSize({ pan: false });
+      return w;
+    };
+    let w = store.get('panelW', null);
+    if (w) w = apply(w);
+    grip.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      grip.setPointerCapture(e.pointerId);
+      const x0 = e.clientX;
+      const w0 = panel.getBoundingClientRect().width / (Number(state.ui) || 1);
+      const move = (ev) => { w = apply(w0 + (ev.clientX - x0) / (Number(state.ui) || 1)); };
+      const up = () => {
+        grip.removeEventListener('pointermove', move);
+        grip.removeEventListener('pointerup', up);
+        grip.removeEventListener('pointercancel', up);
+        if (w) store.set('panelW', w);
+      };
+      grip.addEventListener('pointermove', move);
+      grip.addEventListener('pointerup', up);
+      grip.addEventListener('pointercancel', up);
+    });
+    // 두 번 누르면 기본 폭
+    grip.addEventListener('dblclick', () => {
+      document.documentElement.style.removeProperty('--panel-w');
+      w = null; store.set('panelW', null);
+      if (map) map.invalidateSize({ pan: false });
+    });
   }
 
   // account.js 가 서버 기록을 합친 뒤 부름
