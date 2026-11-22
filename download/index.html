@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Byeolji · 다운로드</title>
+<meta name="description" content="별지(Byeolji) 내려받기: Windows용 원신 지도 오버레이와 Android 앱, 권장 사양과 설치 가이드.">
+<link rel="canonical" href="https://byeolji.app/download/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Byeolji">
+<meta property="og:url" content="https://byeolji.app/download/">
+<meta property="og:title" content="Byeolji · 다운로드">
+<meta property="og:image" content="https://byeolji.app/og.jpg">
+<link rel="icon" href="/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+  .hub { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  .hub-top { display: flex; align-items: center; gap: 14px; padding: 18px 0; }
+  .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: auto; white-space: nowrap; }
+  .hub-top .brand img { border-radius: 7px; }
+  .nav-dl { color: var(--gold); text-decoration: none; border: 1px solid var(--gold); border-radius: 7px; padding: 4px 10px; white-space: nowrap; }
+  .lang-label { color: var(--dim); font-size: 14px; margin-right: -6px; white-space: nowrap; }
+  .hub-top select { background: transparent; color: var(--text); border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 6px; font: inherit; }
+  .hub-top option { background: var(--ink); }
+  @media (max-width: 420px) { .hub-top { gap: 8px; } .hub-top select { max-width: 110px; } .lang-label { display: none; } }
+  .page-title { font-size: clamp(28px, 5vw, 40px); margin: 40px 0 28px; }
+  .platforms { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  section.platform { margin: 0; max-width: none; border: 1px solid rgba(234, 227, 204, .22); border-radius: 16px; padding: 24px; background: rgba(11, 37, 46, .55); display: flex; flex-direction: column; gap: 14px; }
+  .platform h2 { margin: 0; font-size: 24px; }
+  .platform .ver { color: var(--dim); font-size: 14px; min-height: 1.4em; }
+  .platform .dl { align-self: flex-start; }
+  .platform .dl.off { background: transparent; color: var(--dim); border: 1px solid rgba(234, 227, 204, .3); box-shadow: none; pointer-events: none; }
+  .specs { border-collapse: collapse; width: 100%; font-size: 15px; }
+  .specs th { text-align: left; font-weight: 700; padding: 8px 12px 8px 0; white-space: nowrap; vertical-align: top; width: 7.5em; }
+  .specs td { padding: 8px 0; color: var(--dim); border-bottom: 1px solid rgba(46, 90, 102, .6); }
+  .specs tr:first-child th, .specs tr:first-child td { border-top: 1px solid rgba(46, 90, 102, .6); }
+  .spec-note { color: #8FA6A9; font-size: 13px; margin: 0; }
+  .guide-title { font-size: 30px; margin: 88px 0 0; }
+  .android-steps { margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="hub">
+  <header class="hub-top">
+    <a class="brand" href="/"><img src="/icon.png" alt="" width="30" height="30">Byeolji</a>
+    <a class="nav-dl" href="/download/" data-t="download" aria-current="page">다운로드</a>
+    <label class="lang-label" for="lang">Language :</label>
+    <select id="lang" aria-label="Language">
+      <option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option>
+      <option value="ru">Русский</option><option value="id">Bahasa Indonesia</option><option value="es">Español</option>
+    </select>
+  </header>
+
+  <h1 class="page-title" data-t="title">다운로드</h1>
+
+  <div class="platforms">
+    <section class="platform" aria-labelledby="win-h">
+      <h2 id="win-h">Windows</h2>
+      <p class="ver" id="win-ver"></p>
+      <a class="dl" id="win-dl" href="https://github.com/juan-hong/Byeolji/releases/latest">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11m0 0-4.5-4.5m4.5 4.5 4.5-4.5M4.5 19.5h15"/></svg>
+        <span data-t="winBtn">Windows용 내려받기</span>
+      </a>
+      <table class="specs">
+        <tr><th scope="row" data-t="min">최소 사양</th><td data-t="winMin">Windows 10 64비트 (2004 이상) · RAM 8GB</td></tr>
+        <tr><th scope="row" data-t="rec">권장 사양</th><td data-t="winRec">Windows 11 64비트 · RAM 16GB</td></tr>
+      </table>
+    </section>
+
+    <section class="platform" aria-labelledby="and-h">
+      <h2 id="and-h">Android</h2>
+      <p class="ver" id="and-ver"></p>
+      <a class="dl off" id="and-dl" href="https://github.com/juan-hong/Byeolji/releases/latest" aria-disabled="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11m0 0-4.5-4.5m4.5 4.5 4.5-4.5M4.5 19.5h15"/></svg>
+        <span id="and-label" data-t="soon">준비 중</span>
+      </a>
+      <table class="specs">
+        <tr><th scope="row" data-t="min">최소 사양</th><td data-t="andMin">Android 11 · RAM 6GB</td></tr>
+        <tr><th scope="row" data-t="rec">권장 사양</th><td data-t="andRec">Android 13 이상 · RAM 8GB</td></tr>
+      </table>
+    </section>
+  </div>
+  <p class="spec-note" style="margin-top:14px" data-t="specNote">원신이 원활하게 돌아가는 기기 기준입니다. 무료이며 HoYoverse와 무관한 팬 프로젝트입니다.</p>
+
+  <h2 class="guide-title" data-t="guide">설치 가이드</h2>
+</div>
+
+<main>
+  <section class="install" id="install" aria-labelledby="install-h">
+    <h2 id="install-h" data-i18n="install.title">설치할 때 뜨는 경고</h2>
+    <p class="why" data-i18n="install.why">크롬이나 Windows가 "위험할 수 있다"고 경고합니다. 바이러스가 있어서가 아니라, 개인이 만든 무료 프로그램이라 아직 코드 서명(제작자 확인 도장)이 없고, 새 버전이 나올 때마다 받은 사람 수가 0부터 다시 세어지기 때문입니다. 설치 파일은 꼭 이 페이지의 내려받기 버튼(GitHub)에서만 받아 주세요.</p>
+
+    <ol class="steps">
+      <li>
+        <div class="shot shot-chrome" aria-hidden="true">
+          <div class="cb-row"><span class="cb-ico">!</span><span class="cb-file">Byeolji.Setup.exe<br><small data-i18n="ui.chrome.msg">흔히 다운로드되는 파일이 아닙니다</small></span></div>
+          <div class="cb-btns"><span data-i18n="ui.chrome.delete">삭제</span><span class="hl" data-i18n="ui.chrome.keep">유지</span></div>
+        </div>
+        <h3 data-i18n="install.s1.t">크롬이 막으면 "유지"</h3>
+        <p data-i18n="install.s1.d">오른쪽 위 다운로드 아이콘을 눌러 "유지"나 "계속"을 눌러 주세요. 안 보이면 주소창에 <code>chrome://downloads</code>를 입력하세요.</p>
+      </li>
+      <li>
+        <div class="shot shot-smart" aria-hidden="true">
+          <b data-i18n="ui.smart.title">Windows의 PC 보호</b>
+          <span data-i18n="ui.smart.msg">Microsoft Defender SmartScreen에서 인식할 수 없는 앱의 시작을 차단했습니다.</span>
+          <span class="hl-link" data-i18n="ui.smart.more">추가 정보</span>
+          <span class="sm-btn" data-i18n="ui.smart.dont">실행 안 함</span>
+        </div>
+        <h3 data-i18n="install.s2.t">파란 창은 "추가 정보" → "실행"</h3>
+        <p data-i18n="install.s2.d">처음엔 실행 버튼이 숨어 있습니다. "추가 정보"를 누르면 나타납니다.</p>
+      </li>
+      <li>
+        <div class="shot shot-uac" aria-hidden="true">
+          <b data-i18n="ui.uac.msg">이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?</b>
+          <span>Byeolji</span>
+          <span class="uac-btns"><span class="hl" data-i18n="ui.uac.yes">예</span><span data-i18n="ui.uac.no">아니요</span></span>
+        </div>
+        <h3 data-i18n="install.s3.t">관리자 권한은 "예"</h3>
+        <p data-i18n="install.s3.d">원신이 관리자 권한으로 돌아가서, 같은 권한이어야 게임 위에서 단축키와 마우스를 인식할 수 있습니다.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="install" aria-labelledby="and-guide-h">
+    <h2 id="and-guide-h" data-t="andGuide">Android 설치</h2>
+    <ol class="steps android-steps">
+      <li><h3 data-t="a1t">APK 내려받기</h3><p data-t="a1d">위 버튼으로 APK 파일을 받습니다. 플레이 스토어가 아니라 GitHub에서 받는 파일입니다.</p></li>
+      <li><h3 data-t="a2t">"출처를 알 수 없는 앱" 허용</h3><p data-t="a2d">파일을 열면 설치를 막는 창이 뜹니다. "설정"을 눌러 이 출처 허용을 켠 뒤 돌아와서 설치하세요.</p></li>
+      <li><h3 data-t="a3t">처음 켤 때 권한</h3><p data-t="a3d">실시간 추적은 "다른 앱 위에 표시" 권한과 화면 공유가 필요합니다. 화면 공유 창에서 "앱 하나 공유 → 원신"을 고르세요. 화면은 기기 안에서만 쓰고 밖으로 보내지 않습니다.</p></li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <p data-i18n="footer">Byeolji는 HoYoverse와 관계없는 개인 팬 프로젝트이며, 원신과 게임 데이터·이미지의 권리는 HoYoverse에 있습니다.</p>
+</footer>
+
+<script src="/i18n.js"></script>
+<script>
+(() => {
+  const S = {
+    en: { download: 'Download', title: 'Download', winBtn: 'Download for Windows', soon: 'Coming soon', andBtn: 'Download APK',
+      min: 'Minimum', rec: 'Recommended', winMin: 'Windows 10 64-bit (2004 or later) · 8 GB RAM', winRec: 'Windows 11 64-bit · 16 GB RAM',
+      andMin: 'Android 11 · 6 GB RAM', andRec: 'Android 13 or later · 8 GB RAM',
+      specNote: 'Based on devices that run Genshin Impact smoothly. Free, and a fan project not affiliated with HoYoverse.',
+      guide: 'Installation guide', andGuide: 'Installing on Android',
+      a1t: 'Download the APK', a1d: 'Get the APK file with the button above. It comes from GitHub, not the Play Store.',
+      a2t: 'Allow "unknown apps"', a2d: 'When you open the file, Android blocks the install. Tap "Settings", allow this source, then come back and install.',
+      a3t: 'Permissions on first run', a3d: 'Live tracking needs the "Display over other apps" permission and screen sharing. In the share dialog choose "Share one app → Genshin Impact". The screen is only used on your device and never sent anywhere.' },
+    ja: { download: 'ダウンロード', title: 'ダウンロード', winBtn: 'Windows版をダウンロード', soon: '準備中', andBtn: 'APKをダウンロード',
+      min: '最低動作環境', rec: '推奨動作環境', winMin: 'Windows 10 64ビット（2004以降）· RAM 8GB', winRec: 'Windows 11 64ビット · RAM 16GB',
+      andMin: 'Android 11 · RAM 6GB', andRec: 'Android 13以降 · RAM 8GB',
+      specNote: '原神が快適に動く端末が基準です。無料で、HoYoverseとは無関係のファンプロジェクトです。',
+      guide: 'インストールガイド', andGuide: 'Androidへのインストール',
+      a1t: 'APKをダウンロード', a1d: '上のボタンからAPKファイルを入手します。Playストアではなく、GitHubから配布しています。',
+      a2t: '「提供元不明のアプリ」を許可', a2d: 'ファイルを開くとインストールがブロックされます。「設定」でこの提供元を許可してから戻ってインストールしてください。',
+      a3t: '初回起動時の権限', a3d: 'リアルタイム追跡には「他のアプリの上に重ねて表示」の権限と画面共有が必要です。共有画面で「1つのアプリを共有 → 原神」を選んでください。画面は端末内でのみ使い、外部には送信しません。' },
+    zh: { download: '下载', title: '下载', winBtn: '下载 Windows 版', soon: '即将推出', andBtn: '下载 APK',
+      min: '最低配置', rec: '推荐配置', winMin: 'Windows 10 64 位（2004 及以上）· 8GB 内存', winRec: 'Windows 11 64 位 · 16GB 内存',
+      andMin: 'Android 11 · 6GB 内存', andRec: 'Android 13 及以上 · 8GB 内存',
+      specNote: '以能流畅运行原神的设备为准。免费，与 HoYoverse 无关的粉丝项目。',
+      guide: '安装指南', andGuide: '在安卓上安装',
+      a1t: '下载 APK', a1d: '用上方按钮获取 APK 文件。文件来自 GitHub，而不是应用商店。',
+      a2t: '允许"未知来源应用"', a2d: '打开文件时安卓会阻止安装。点"设置"允许此来源，然后返回安装。',
+      a3t: '首次启动的权限', a3d: '实时追踪需要"显示在其他应用上层"权限和屏幕共享。在共享窗口中选择"共享单个应用 → 原神"。画面只在设备内使用，绝不外传。' },
+    ru: { download: 'Скачать', title: 'Скачать', winBtn: 'Скачать для Windows', soon: 'Скоро', andBtn: 'Скачать APK',
+      min: 'Минимум', rec: 'Рекомендуется', winMin: 'Windows 10 64-бит (2004 или новее) · 8 ГБ ОЗУ', winRec: 'Windows 11 64-бит · 16 ГБ ОЗУ',
+      andMin: 'Android 11 · 6 ГБ ОЗУ', andRec: 'Android 13 или новее · 8 ГБ ОЗУ',
+      specNote: 'Для устройств, на которых Genshin Impact работает плавно. Бесплатно; фанатский проект, не связанный с HoYoverse.',
+      guide: 'Как установить', andGuide: 'Установка на Android',
+      a1t: 'Скачайте APK', a1d: 'Скачайте APK-файл кнопкой выше. Он размещён на GitHub, а не в Play Маркете.',
+      a2t: 'Разрешите «неизвестные приложения»', a2d: 'При открытии файла Android заблокирует установку. Нажмите «Настройки», разрешите этот источник, вернитесь и установите.',
+      a3t: 'Разрешения при первом запуске', a3d: 'Для отслеживания нужны разрешение «Поверх других приложений» и демонстрация экрана. В окне выберите «Одно приложение → Genshin Impact». Изображение используется только на устройстве и никуда не отправляется.' },
+    id: { download: 'Unduh', title: 'Unduh', winBtn: 'Unduh untuk Windows', soon: 'Segera hadir', andBtn: 'Unduh APK',
+      min: 'Minimum', rec: 'Disarankan', winMin: 'Windows 10 64-bit (2004 atau lebih baru) · RAM 8 GB', winRec: 'Windows 11 64-bit · RAM 16 GB',
+      andMin: 'Android 11 · RAM 6 GB', andRec: 'Android 13 atau lebih baru · RAM 8 GB',
+      specNote: 'Berdasarkan perangkat yang lancar menjalankan Genshin Impact. Gratis, proyek penggemar yang tidak berafiliasi dengan HoYoverse.',
+      guide: 'Panduan instalasi', andGuide: 'Instal di Android',
+      a1t: 'Unduh APK', a1d: 'Unduh file APK dengan tombol di atas. File ini dari GitHub, bukan Play Store.',
+      a2t: 'Izinkan "aplikasi tidak dikenal"', a2d: 'Saat membuka file, Android memblokir instalasi. Ketuk "Setelan", izinkan sumber ini, lalu kembali dan instal.',
+      a3t: 'Izin saat pertama dibuka', a3d: 'Pelacakan langsung butuh izin "Tampilkan di atas aplikasi lain" dan berbagi layar. Di jendela berbagi pilih "Bagikan satu aplikasi → Genshin Impact". Layar hanya dipakai di perangkat dan tidak dikirim ke mana pun.' },
+    es: { download: 'Descargar', title: 'Descargar', winBtn: 'Descargar para Windows', soon: 'Próximamente', andBtn: 'Descargar APK',
+      min: 'Mínimo', rec: 'Recomendado', winMin: 'Windows 10 de 64 bits (2004 o posterior) · 8 GB de RAM', winRec: 'Windows 11 de 64 bits · 16 GB de RAM',
+      andMin: 'Android 11 · 6 GB de RAM', andRec: 'Android 13 o posterior · 8 GB de RAM',
+      specNote: 'Según dispositivos que ejecutan Genshin Impact con fluidez. Gratis; proyecto de fans sin relación con HoYoverse.',
+      guide: 'Guía de instalación', andGuide: 'Instalar en Android',
+      a1t: 'Descarga el APK', a1d: 'Descarga el archivo APK con el botón de arriba. Viene de GitHub, no de Play Store.',
+      a2t: 'Permite "apps desconocidas"', a2d: 'Al abrir el archivo, Android bloquea la instalación. Toca "Ajustes", permite este origen y vuelve para instalar.',
+      a3t: 'Permisos al abrirla', a3d: 'El seguimiento en vivo necesita el permiso "Mostrar sobre otras apps" y compartir pantalla. En la ventana elige "Compartir una app → Genshin Impact". La pantalla solo se usa en tu dispositivo y nunca se envía.' },
+  };
+  const ko = {};
+  document.querySelectorAll('[data-t]').forEach((el) => { ko[el.dataset.t] = el.textContent; });
+  ko.andBtn = 'Android용 내려받기 (APK)';
+  const tr = (k) => (S[window.byeoljiLang] || {})[k] ?? ko[k];
+  let apk = false;
+  const apply = () => {
+    document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = tr(el.dataset.t); });
+    document.getElementById('and-label').textContent = tr(apk ? 'andBtn' : 'soon');
+  };
+  apply();
+  document.addEventListener('langchange', apply);
+
+  // 최신 릴리스에서 설치 파일(exe)·APK 찾아 버튼 연결. APK 가 아직 없으면 준비 중 그대로
+  fetch('https://api.github.com/repos/juan-hong/Byeolji/releases/latest')
+    .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then((rel) => {
+      const v = String(rel.tag_name || '').replace(/^v/i, '');
+      const mb = (a) => Math.round(a.size / 1048576);
+      const exe = (rel.assets || []).find((a) => /\.exe$/i.test(a.name));
+      if (exe) {
+        document.getElementById('win-dl').href = exe.browser_download_url;
+        document.getElementById('win-ver').textContent = `v${v} · ${mb(exe)}MB`;
+      }
+      const a = (rel.assets || []).find((x) => /\.apk$/i.test(x.name));
+      if (a) {
+        apk = true;
+        const btn = document.getElementById('and-dl');
+        btn.href = a.browser_download_url;
+        btn.classList.remove('off');
+        btn.removeAttribute('aria-disabled');
+        document.getElementById('and-ver').textContent = `v${v} · ${mb(a)}MB`;
+        apply();
+      }
+    })
+    .catch(() => {});
+})();
+</script>
+</body>
+</html>

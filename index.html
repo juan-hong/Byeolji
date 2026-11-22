@@ -24,18 +24,13 @@
   .hub-top { display: flex; align-items: center; gap: 14px; padding: 18px 0; }
   .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: auto; }
   .hub-top .brand img { border-radius: 7px; }
-  .dl-menu { position: relative; }
-  .hub-top .brand, .dl-menu summary { white-space: nowrap; }
+  .hub-top .brand, .nav-dl { white-space: nowrap; }
   @media (max-width: 420px) { .hub-top { gap: 8px; } .hub-top select { max-width: 110px; } }
-  .dl-menu summary { list-style: none; cursor: pointer; color: var(--dim); border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 26px 4px 10px; position: relative; }
-  .dl-menu summary::-webkit-details-marker { display: none; }
-  .dl-menu summary::after { content: ""; position: absolute; right: 10px; top: 50%; width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); }
-  .dl-menu summary:hover, .dl-menu[open] summary { color: var(--text); }
-  .dl-list { position: absolute; right: 0; top: calc(100% + 6px); min-width: 170px; z-index: 5; display: flex; flex-direction: column; padding: 6px; background: var(--ink); border: 1px solid rgba(234, 227, 204, .25); border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
-  .dl-list a, .dl-list .off { padding: 7px 10px; border-radius: 7px; text-decoration: none; color: var(--text); white-space: nowrap; }
-  .dl-list a:hover { background: rgba(234, 227, 204, .08); color: var(--gold); }
-  .dl-list .off { color: var(--dim); opacity: .6; cursor: default; }
-  .dl-list small { font-size: 12px; }
+  .nav-dl { color: var(--dim); text-decoration: none; border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 10px; }
+  .nav-dl:hover { color: var(--gold); border-color: var(--gold); }
+  .lang-label { color: var(--dim); font-size: 14px; margin-right: -6px; white-space: nowrap; }
+  /* 게임 고르기 아래 PC 앱 소개 */
+  .intro { margin-top: 88px; border-top: 1px solid rgba(234, 227, 204, .12); padding-top: 40px; }
   .hub-top select { background: transparent; color: var(--text); border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 6px; font: inherit; }
   .hub-top option { background: var(--ink); }
   .hero { text-align: center; padding: 56px 0 40px; }
@@ -60,13 +55,8 @@
 <div class="hub">
   <header class="hub-top">
     <a class="brand" href="/"><img src="/icon.png" alt="" width="30" height="30">Byeolji</a>
-    <details class="dl-menu">
-      <summary data-t="download">다운로드</summary>
-      <div class="dl-list">
-        <a href="/app/" data-t="windows">Windows</a>
-        <span class="off" aria-disabled="true"><span data-t="android">Android</span> <small data-t="soon">준비 중</small></span>
-      </div>
-    </details>
+    <a class="nav-dl" href="/download/" data-t="download">다운로드</a>
+    <label class="lang-label" for="lang">Language :</label>
     <select id="lang" aria-label="Language">
       <option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option>
       <option value="ru">Русский</option><option value="id">Bahasa Indonesia</option><option value="es">Español</option>
@@ -94,6 +84,94 @@
     </div>
   </div>
 </div>
+
+<!-- PC 앱 소개 (예전 /app/ 페이지 첫 화면·범례·만든 사람). 다른 언어 문장은 i18n.js -->
+<main class="intro">
+  <!-- 첫 화면: 측량도(실제 게임 큰 지도) 위에 투명 별지 한 장 -->
+  <section class="survey" aria-labelledby="title">
+    <div class="sheet-frame">
+      <div class="ticks ticks-top" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+      <div class="ticks ticks-left" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+
+      <div class="plate" id="plate">
+        <img class="map" src="/shots/mond.webp" data-i18n-attr="alt:hero.alt" alt="원신 지도의 몬드성 주변. 투명 시트를 덮은 쪽에만 자원 마커가 보인다." width="2956" height="1806">
+        <div class="film" id="film" aria-hidden="true">
+          <div class="markers" id="markers"></div>
+          <span class="reg reg-tr"></span><span class="reg reg-br"></span>
+        </div>
+        <div class="edge" id="edge" role="slider" tabindex="0" data-i18n-attr="aria-label:hero.slider" aria-label="투명 시트 위치 (덮인 쪽에 마커가 보여요)"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
+          <span class="knob" aria-hidden="true"><svg viewBox="-26 -26 52 52"><path d="M0-22 4.4-4.4 22 0 4.4 4.4 0 22-4.4 4.4-22 0-4.4-4.4z"/><circle r="3.6"/></svg></span>
+        </div>
+        <p class="pencil" aria-hidden="true" data-i18n="hero.drag">← 끌어 보세요</p>
+      </div>
+
+      <div class="label">
+        <h1 id="title" data-i18n="hero.title">지도 위에<br>별지 한 장.</h1>
+        <p class="lede" data-i18n="hero.lede">원신 PC 버전에서 큰 지도와 미니맵 위에 자원 위치를 바로 띄워 주는 무료 원신 보조 프로그램입니다.</p>
+        <a class="dl" href="/download/">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11m0 0-4.5-4.5m4.5 4.5 4.5-4.5M4.5 19.5h15"/></svg>
+          <span data-i18n="hero.download">Windows용 내려받기</span>
+        </a>
+        <p class="fine" data-i18n="hero.fine">무료 · Windows 10/11 64비트 · HoYoverse와 무관한 팬 프로젝트</p>
+      </div>
+    </div>
+    <p class="caption" data-i18n="hero.caption">몬드성 주변 지도에 Byeolji 데이터로 워프 포인트, 일곱신상, 민들레 씨앗, 풍차 국화 등 144곳을 앱과 같은 방식으로 찍은 모습.</p>
+  </section>
+
+  <!-- 범례: 지도 아래 붙는 설명 상자처럼 -->
+  <section class="legend" id="how" aria-labelledby="how-h">
+    <h2 id="how-h" data-i18n="how.title">범례</h2>
+    <dl>
+      <div>
+        <dt><span class="mk" style="--c:#295A6B"><img src="/icons/3.png" alt=""></span><span data-i18n="how.map.t"><kbd>M</kbd>으로 지도를 열면</span></dt>
+        <dd data-i18n="how.map.d">지도를 열고 끌고 확대해도 화면을 알아보고 지정한 마커가 따라옵니다. 지하 층도, 컨트롤러 조작 모드도, 여러 비율의 모니터도 지원합니다.</dd>
+      </div>
+      <div>
+        <dt><span class="mk mk-mini" style="--c:#6B4F29"><img src="/icons/43.png" alt=""></span><span data-i18n="how.mini.t">걸어 다닐 땐 미니맵에</span></dt>
+        <dd data-i18n="how.mini.d">미니맵 원 안에도 가까운 자원이 뜹니다. 지도를 다시 열 필요가 없습니다.</dd>
+      </div>
+      <div>
+        <dt><span class="mk mk-done" style="--c:#6B4B29"><img src="/icons/37.png" alt=""></span><span data-i18n="how.done.t">모은 곳은 흐리게</span></dt>
+        <dd data-i18n="how.done.d">마커를 <kbd>Ctrl</kbd>+클릭하면 획득 표시(키는 설정에서 바꿀 수 있습니다). 로그인하면 여러 PC에서 기록이 동기화됩니다(로그인은 선택 사항).</dd>
+      </div>
+    </dl>
+    <table class="keys">
+      <caption data-i18n="keys.title">단축키</caption>
+      <tbody>
+        <tr><th scope="row"><kbd>F6</kbd></th><td data-i18n="keys.f6">지도 마커 켜기·끄기</td></tr>
+        <tr><th scope="row"><kbd>F7</kbd></th><td data-i18n="keys.f7">자원 고르는 패널 열기·닫기</td></tr>
+        <tr><th scope="row"><kbd>F8</kbd></th><td data-i18n="keys.f8">위치 다시 찾기</td></tr>
+        <tr><th scope="row"><kbd>F10</kbd></th><td data-i18n="keys.f10">진단 화면</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div>
+      <h2 id="about-h" data-i18n="about.title">만든 사람</h2>
+      <p data-i18n="about.text">원신 좋아하는 대학생이에요. 자원들의 위치를 오버레이로 보여 주고 싶어서 만들었습니다. 사용자 피드백을 굉장히 중요하게 생각합니다. 발견하신 사소한 버그나 건의는 메일로 편하게 보내 주세요.</p>
+      <p class="row">
+        <a class="line" href="mailto:support@byeolji.app" data-i18n="about.mail">support@byeolji.app(메일)</a>
+        <a class="line" href="https://ko-fi.com/byeolji" data-i18n="about.kofi">Ko-fi로 후원</a>
+        <a class="line" href="https://qr.kakaopay.com/FJiI97iYg" data-only="ko">카카오페이로 후원</a>
+      </p>
+    </div>
+    <div>
+      <h2 data-i18n="privacy.title">개인정보</h2>
+      <p data-i18n="privacy.text">게임 화면은 위치를 알아보는 데만 쓰고, 절대 내 PC 밖으로 보내지 않습니다. 로그인은 동기화에만 쓰이며 선택 사항입니다.</p>
+      <p class="row"><a class="line" href="https://genshin-overlay-api-483165482465.us-central1.run.app/privacy" data-i18n="privacy.link">개인정보처리방침</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p data-i18n="footer">Byeolji는 HoYoverse와 관계없는 개인 팬 프로젝트이며, 원신과 게임 데이터·이미지의 권리는 HoYoverse에 있습니다.</p>
+</footer>
+
+<script src="/shots/mond.js"></script>
+<script src="/i18n.js"></script>
+<script src="/site.js"></script>
 <script>
 (() => {
   const S = {
@@ -130,9 +208,6 @@
     apply(e.target.value);
   });
   apply(pick());
-  // 다운로드 메뉴: 바깥 누르면 닫음
-  const menu = document.querySelector('.dl-menu');
-  document.addEventListener('click', (e) => { if (!menu.contains(e.target)) menu.open = false; });
 })();
 </script>
 </body>

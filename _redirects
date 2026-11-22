@@ -4,3 +4,7 @@
 /map/* /genshin/map/:splat 301
 /genshin /genshin/map/ 302
 /genshin/ /genshin/map/ 302
+# 예전 PC 앱 소개 페이지 -> 메인 (내용은 메인과 /download/ 로 옮김)
+/app / 301
+/app/ / 301
+/app/* / 301

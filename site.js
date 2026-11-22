@@ -61,6 +61,7 @@
 (() => {
   const dl = document.getElementById('dl');
   const fine = document.getElementById('fine');
+  if (!dl || !fine) return;
   fetch('https://api.github.com/repos/juan-hong/Byeolji/releases/latest')
     .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
     .then((rel) => {
