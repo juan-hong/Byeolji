@@ -78,8 +78,8 @@
         <span id="and-label" data-t="soon">준비 중</span>
       </a>
       <table class="specs">
-        <tr><th scope="row" data-t="min">최소 사양</th><td data-t="andMin">Android 11 · RAM 6GB</td></tr>
-        <tr><th scope="row" data-t="rec">권장 사양</th><td data-t="andRec">Android 13 이상 · RAM 8GB</td></tr>
+        <tr><th scope="row" data-t="min">최소 사양</th><td data-t="andMin">Android 11 · RAM 8GB</td></tr>
+        <tr><th scope="row" data-t="rec">권장 사양</th><td data-t="andRec">Android 13 이상 · RAM 12GB</td></tr>
       </table>
     </section>
   </div>
@@ -129,7 +129,9 @@
     <ol class="steps android-steps">
       <li><h3 data-t="a1t">APK 내려받기</h3><p data-t="a1d">위 버튼으로 APK 파일을 받습니다. 플레이 스토어가 아니라 GitHub에서 받는 파일입니다.</p></li>
       <li><h3 data-t="a2t">"출처를 알 수 없는 앱" 허용</h3><p data-t="a2d">파일을 열면 설치를 막는 창이 뜹니다. "설정"을 눌러 이 출처 허용을 켠 뒤 돌아와서 설치하세요.</p></li>
-      <li><h3 data-t="a3t">처음 켤 때 권한</h3><p data-t="a3d">실시간 추적은 "다른 앱 위에 표시" 권한과 화면 공유가 필요합니다. 화면 공유 창에서 "앱 하나 공유 → 원신"을 고르세요. 화면은 기기 안에서만 쓰고 밖으로 보내지 않습니다.</p></li>
+      <li><h3 data-t="a3t">Play 프로텍트 경고</h3><p data-t="a3d">"확인되지 않은 앱"이라고 나오면 "세부정보" → "무시하고 설치"를 누르세요. 문구는 기기마다 조금 다릅니다.</p></li>
+      <li><h3 data-t="a4t">권한 허용</h3><p data-t="a4d">별지를 켜고 "다른 앱 위에 표시"와 알림 권한을 허용하세요. 알림은 메모리 부족 등으로 별지가 꺼졌을 때 알려 드리는 데 씁니다.</p></li>
+      <li><h3 data-t="a5t">실시간 추적 켜기</h3><p data-t="a5d">오른쪽 위 "실시간 추적"을 누르고, 화면 공유 창에서 "앱 하나 공유 → 원신"을 고르세요. 화면은 기기 안에서만 쓰고 밖으로 보내지 않습니다.</p></li>
     </ol>
   </section>
 </main>
@@ -144,52 +146,64 @@
   const S = {
     en: { download: 'Download', title: 'Download', winBtn: 'Download for Windows', soon: 'Coming soon', andBtn: 'Download APK',
       min: 'Minimum', rec: 'Recommended', winMin: 'Windows 10 64-bit (2004 or later) · 8 GB RAM', winRec: 'Windows 11 64-bit · 16 GB RAM',
-      andMin: 'Android 11 · 6 GB RAM', andRec: 'Android 13 or later · 8 GB RAM',
+      andMin: 'Android 11 · 8 GB RAM', andRec: 'Android 13 or later · 12 GB RAM',
       specNote: 'Based on devices that run Genshin Impact smoothly. Free, and a fan project not affiliated with HoYoverse.',
       guide: 'Installation guide', andGuide: 'Installing on Android',
       a1t: 'Download the APK', a1d: 'Get the APK file with the button above. It comes from GitHub, not the Play Store.',
       a2t: 'Allow "unknown apps"', a2d: 'When you open the file, Android blocks the install. Tap "Settings", allow this source, then come back and install.',
-      a3t: 'Permissions on first run', a3d: 'Live tracking needs the "Display over other apps" permission and screen sharing. In the share dialog choose "Share one app → Genshin Impact". The screen is only used on your device and never sent anywhere.' },
+      a3t: 'Play Protect warning', a3d: 'If it says the app is not verified, tap "More details" → "Install anyway". The wording differs a little by device.',
+      a4t: 'Allow permissions', a4d: 'Open Byeolji and allow "Display over other apps" and notifications. Notifications tell you if Byeolji gets closed, for example when memory runs low.',
+      a5t: 'Turn on live tracking', a5d: 'Tap "Live tracking" at the top right and choose "Share one app → Genshin Impact" in the share dialog. The screen is used only on your device and never sent anywhere.',
     ja: { download: 'ダウンロード', title: 'ダウンロード', winBtn: 'Windows版をダウンロード', soon: '準備中', andBtn: 'APKをダウンロード',
       min: '最低動作環境', rec: '推奨動作環境', winMin: 'Windows 10 64ビット（2004以降）· RAM 8GB', winRec: 'Windows 11 64ビット · RAM 16GB',
-      andMin: 'Android 11 · RAM 6GB', andRec: 'Android 13以降 · RAM 8GB',
+      andMin: 'Android 11 · RAM 8GB', andRec: 'Android 13以降 · RAM 12GB',
       specNote: '原神が快適に動く端末が基準です。無料で、HoYoverseとは無関係のファンプロジェクトです。',
       guide: 'インストールガイド', andGuide: 'Androidへのインストール',
       a1t: 'APKをダウンロード', a1d: '上のボタンからAPKファイルを入手します。Playストアではなく、GitHubから配布しています。',
       a2t: '「提供元不明のアプリ」を許可', a2d: 'ファイルを開くとインストールがブロックされます。「設定」でこの提供元を許可してから戻ってインストールしてください。',
-      a3t: '初回起動時の権限', a3d: 'リアルタイム追跡には「他のアプリの上に重ねて表示」の権限と画面共有が必要です。共有画面で「1つのアプリを共有 → 原神」を選んでください。画面は端末内でのみ使い、外部には送信しません。' },
+      a3t: 'Play プロテクトの警告', a3d: '「確認されていないアプリ」と出たら「詳細」→「このままインストール」をタップします。表示は端末によって少し違います。',
+      a4t: '権限を許可', a4d: 'Byeoljiを開き、「他のアプリの上に重ねて表示」と通知を許可します。通知は、メモリ不足などでByeoljiが終了したときのお知らせに使います。',
+      a5t: 'リアルタイム追跡をオン', a5d: '右上の「リアルタイム追跡」をタップし、共有画面で「1つのアプリを共有 → 原神」を選びます。画面は端末の中だけで使い、外には送りません。',
     zh: { download: '下载', title: '下载', winBtn: '下载 Windows 版', soon: '即将推出', andBtn: '下载 APK',
       min: '最低配置', rec: '推荐配置', winMin: 'Windows 10 64 位（2004 及以上）· 8GB 内存', winRec: 'Windows 11 64 位 · 16GB 内存',
-      andMin: 'Android 11 · 6GB 内存', andRec: 'Android 13 及以上 · 8GB 内存',
+      andMin: 'Android 11 · 8GB 内存', andRec: 'Android 13 及以上 · 12GB 内存',
       specNote: '以能流畅运行原神的设备为准。免费，与 HoYoverse 无关的粉丝项目。',
       guide: '安装指南', andGuide: '在安卓上安装',
       a1t: '下载 APK', a1d: '用上方按钮获取 APK 文件。文件来自 GitHub，而不是应用商店。',
       a2t: '允许"未知来源应用"', a2d: '打开文件时安卓会阻止安装。点"设置"允许此来源，然后返回安装。',
-      a3t: '首次启动的权限', a3d: '实时追踪需要"显示在其他应用上层"权限和屏幕共享。在共享窗口中选择"共享单个应用 → 原神"。画面只在设备内使用，绝不外传。' },
+      a3t: 'Play 保护机制警告', a3d: '提示"未经验证的应用"时，点"详细信息"→"仍然安装"。不同设备的文字略有不同。',
+      a4t: '允许权限', a4d: '打开 Byeolji，允许"显示在其他应用上层"和通知。通知用于在内存不足等原因导致 Byeolji 被关闭时提醒你。',
+      a5t: '开启实时追踪', a5d: '点右上角的"实时追踪"，在共享窗口中选择"共享单个应用 → 原神"。画面只在设备内使用，不会发送出去。',
     ru: { download: 'Скачать', title: 'Скачать', winBtn: 'Скачать для Windows', soon: 'Скоро', andBtn: 'Скачать APK',
       min: 'Минимум', rec: 'Рекомендуется', winMin: 'Windows 10 64-бит (2004 или новее) · 8 ГБ ОЗУ', winRec: 'Windows 11 64-бит · 16 ГБ ОЗУ',
-      andMin: 'Android 11 · 6 ГБ ОЗУ', andRec: 'Android 13 или новее · 8 ГБ ОЗУ',
+      andMin: 'Android 11 · 8 ГБ ОЗУ', andRec: 'Android 13 или новее · 12 ГБ ОЗУ',
       specNote: 'Для устройств, на которых Genshin Impact работает плавно. Бесплатно; фанатский проект, не связанный с HoYoverse.',
       guide: 'Как установить', andGuide: 'Установка на Android',
       a1t: 'Скачайте APK', a1d: 'Скачайте APK-файл кнопкой выше. Он размещён на GitHub, а не в Play Маркете.',
       a2t: 'Разрешите «неизвестные приложения»', a2d: 'При открытии файла Android заблокирует установку. Нажмите «Настройки», разрешите этот источник, вернитесь и установите.',
-      a3t: 'Разрешения при первом запуске', a3d: 'Для отслеживания нужны разрешение «Поверх других приложений» и демонстрация экрана. В окне выберите «Одно приложение → Genshin Impact». Изображение используется только на устройстве и никуда не отправляется.' },
+      a3t: 'Предупреждение Play Защиты', a3d: 'Если появится «Приложение не проверено», нажмите «Подробнее» → «Всё равно установить». Текст немного отличается на разных устройствах.',
+      a4t: 'Разрешения', a4d: 'Откройте Byeolji и разрешите «Поверх других приложений» и уведомления. Уведомления сообщат, если Byeolji закроется, например из-за нехватки памяти.',
+      a5t: 'Включите отслеживание', a5d: 'Нажмите «Отслеживание» вверху справа и в окне показа экрана выберите «Показать одно приложение → Genshin Impact». Экран используется только на устройстве и никуда не отправляется.',
     id: { download: 'Unduh', title: 'Unduh', winBtn: 'Unduh untuk Windows', soon: 'Segera hadir', andBtn: 'Unduh APK',
       min: 'Minimum', rec: 'Disarankan', winMin: 'Windows 10 64-bit (2004 atau lebih baru) · RAM 8 GB', winRec: 'Windows 11 64-bit · RAM 16 GB',
-      andMin: 'Android 11 · RAM 6 GB', andRec: 'Android 13 atau lebih baru · RAM 8 GB',
+      andMin: 'Android 11 · RAM 8 GB', andRec: 'Android 13 atau lebih baru · RAM 12 GB',
       specNote: 'Berdasarkan perangkat yang lancar menjalankan Genshin Impact. Gratis, proyek penggemar yang tidak berafiliasi dengan HoYoverse.',
       guide: 'Panduan instalasi', andGuide: 'Instal di Android',
       a1t: 'Unduh APK', a1d: 'Unduh file APK dengan tombol di atas. File ini dari GitHub, bukan Play Store.',
       a2t: 'Izinkan "aplikasi tidak dikenal"', a2d: 'Saat membuka file, Android memblokir instalasi. Ketuk "Setelan", izinkan sumber ini, lalu kembali dan instal.',
-      a3t: 'Izin saat pertama dibuka', a3d: 'Pelacakan langsung butuh izin "Tampilkan di atas aplikasi lain" dan berbagi layar. Di jendela berbagi pilih "Bagikan satu aplikasi → Genshin Impact". Layar hanya dipakai di perangkat dan tidak dikirim ke mana pun.' },
+      a3t: 'Peringatan Play Protect', a3d: 'Kalau muncul "aplikasi belum diverifikasi", ketuk "Detail lainnya" → "Tetap instal". Tulisannya sedikit beda di tiap perangkat.',
+      a4t: 'Izinkan akses', a4d: 'Buka Byeolji lalu izinkan "Tampilkan di atas aplikasi lain" dan notifikasi. Notifikasi dipakai untuk memberi tahu kalau Byeolji tertutup, misalnya karena memori penuh.',
+      a5t: 'Nyalakan pelacakan langsung', a5d: 'Ketuk "Pelacakan langsung" di kanan atas, lalu pilih "Bagikan satu aplikasi → Genshin Impact" di jendela berbagi. Layar hanya dipakai di perangkat dan tidak dikirim ke mana pun.',
     es: { download: 'Descargar', title: 'Descargar', winBtn: 'Descargar para Windows', soon: 'Próximamente', andBtn: 'Descargar APK',
       min: 'Mínimo', rec: 'Recomendado', winMin: 'Windows 10 de 64 bits (2004 o posterior) · 8 GB de RAM', winRec: 'Windows 11 de 64 bits · 16 GB de RAM',
-      andMin: 'Android 11 · 6 GB de RAM', andRec: 'Android 13 o posterior · 8 GB de RAM',
+      andMin: 'Android 11 · 8 GB de RAM', andRec: 'Android 13 o posterior · 12 GB de RAM',
       specNote: 'Según dispositivos que ejecutan Genshin Impact con fluidez. Gratis; proyecto de fans sin relación con HoYoverse.',
       guide: 'Guía de instalación', andGuide: 'Instalar en Android',
       a1t: 'Descarga el APK', a1d: 'Descarga el archivo APK con el botón de arriba. Viene de GitHub, no de Play Store.',
       a2t: 'Permite "apps desconocidas"', a2d: 'Al abrir el archivo, Android bloquea la instalación. Toca "Ajustes", permite este origen y vuelve para instalar.',
-      a3t: 'Permisos al abrirla', a3d: 'El seguimiento en vivo necesita el permiso "Mostrar sobre otras apps" y compartir pantalla. En la ventana elige "Compartir una app → Genshin Impact". La pantalla solo se usa en tu dispositivo y nunca se envía.' },
+      a3t: 'Aviso de Play Protect', a3d: 'Si dice que la app no está verificada, toca "Más detalles" → "Instalar de todas formas". El texto cambia un poco según el dispositivo.',
+      a4t: 'Permite los permisos', a4d: 'Abre Byeolji y permite "Mostrar sobre otras apps" y las notificaciones. Las notificaciones te avisan si Byeolji se cierra, por ejemplo por falta de memoria.',
+      a5t: 'Activa el seguimiento en vivo', a5d: 'Toca "Seguimiento en vivo" arriba a la derecha y elige "Compartir una app → Genshin Impact". La pantalla solo se usa en tu dispositivo y nunca se envía.',
   };
   const ko = {};
   document.querySelectorAll('[data-t]').forEach((el) => { ko[el.dataset.t] = el.textContent; });
