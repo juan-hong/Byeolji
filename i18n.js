@@ -249,7 +249,10 @@ window.I18N = {
   });
   window.I18N.ko = ko;
 
+  // 언어별 주소(/en/ 등) 페이지는 그 언어로 고정 (tools/lang_pages.py 가 넣는 meta)
+  const pageLang = document.querySelector('meta[name="byeolji-lang"]')?.content;
   const pick = () => {
+    if (LANGS.includes(pageLang)) return pageLang;
     const q = new URLSearchParams(location.search).get('lang');
     if (LANGS.includes(q)) return q;
     try { const s = localStorage.getItem('lang'); if (LANGS.includes(s)) return s; } catch {}
@@ -278,7 +281,14 @@ window.I18N = {
 
   apply(pick());
   document.getElementById('lang')?.addEventListener('change', (e) => {
-    try { localStorage.setItem('lang', e.target.value); } catch {}
-    apply(e.target.value);
+    const next = e.target.value;
+    try { localStorage.setItem('lang', next); } catch {}
+    // 메인·다운로드·지도 페이지면 그 언어 주소로 이동 (한국어는 루트)
+    const path = location.pathname.replace(/^\/(en|ja|zh|ru|id|es)(?=\/)/, '');
+    if (['/', '/download/', '/genshin/map/'].includes(path)) {
+      const target = (next === 'ko' ? '' : '/' + next) + path;
+      if (target !== location.pathname) { location.href = target + location.hash; return; }
+    }
+    apply(next);
   });
 })();

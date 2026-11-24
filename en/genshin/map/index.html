@@ -1,0 +1,111 @@
+<!doctype html>
+<!-- 자동 생성 (tools/lang_pages.py). 직접 고치지 말고 원본을 고친 뒤 다시 실행 -->
+<html lang="en" data-theme="d">
+<head>
+<meta charset="utf-8">
+<base href="/genshin/map/">
+<meta name="byeolji-lang" content="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Byeolji Map · Genshin Impact interactive map</title>
+<meta name="description" content="Genshin Impact resource map. Find chests, oculi, local specialties and more, and check off what you collect in sync with the Byeolji PC and Android apps.">
+<link rel="canonical" href="https://byeolji.app/en/genshin/map/">
+<!-- lang-pages:alternates -->
+<link rel="alternate" hreflang="ko" href="https://byeolji.app/genshin/map/">
+<link rel="alternate" hreflang="en" href="https://byeolji.app/en/genshin/map/">
+<link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/genshin/map/">
+<link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/genshin/map/">
+<link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/genshin/map/">
+<link rel="alternate" hreflang="id" href="https://byeolji.app/id/genshin/map/">
+<link rel="alternate" hreflang="es" href="https://byeolji.app/es/genshin/map/">
+<link rel="alternate" hreflang="x-default" href="https://byeolji.app/genshin/map/">
+<!-- /lang-pages:alternates -->
+<link rel="icon" href="/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="map.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-gear" viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm7.4-2.5.1-1-.1-1 2.1-1.6-2-3.5-2.5 1a7 7 0 0 0-1.7-1l-.4-2.6h-4l-.4 2.6a7 7 0 0 0-1.7 1l-2.5-1-2 3.5L4.6 11l-.1 1 .1 1-2.1 1.6 2 3.5 2.5-1a7 7 0 0 0 1.7 1l.4 2.6h4l.4-2.6a7 7 0 0 0 1.7-1l2.5 1 2-3.5z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 14a7.5 7.5 0 0 1-5.8-2.8c.9-1.6 3.4-2.7 5.8-2.7s4.9 1.1 5.8 2.7A7.5 7.5 0 0 1 12 19.5z"/></symbol>
+  <symbol id="i-min" viewBox="0 0 24 24"><path d="M5 11h14v2H5z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/></symbol>
+  <symbol id="i-loc" viewBox="0 0 24 24"><path d="M11 2h2v3.1A7 7 0 0 1 18.9 11H22v2h-3.1A7 7 0 0 1 13 18.9V22h-2v-3.1A7 7 0 0 1 5.1 13H2v-2h3.1A7 7 0 0 1 11 5.1zm1 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M7.4 8.6 12 13.2l4.6-4.6L18 10l-6 6-6-6z"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-2 15-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8z"/></symbol>
+  <symbol id="i-mega" viewBox="0 0 24 24"><path d="M18 11v2h4v-2zm-2 6.6 1.2 1.6 3.2-2.4-1.2-1.6zM20.4 5.2 19.2 3.6 16 6l1.2 1.6zM4 9a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1v4h2v-4h1l5 3V6L8 9zm11.5 3A4.5 4.5 0 0 0 13 8v8a4.5 4.5 0 0 0 2.5-4z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 4.5 18.9l-.9-1.8A8 8 0 1 1 20 12v1a1.5 1.5 0 0 1-3 0V7h-2v.8A5 5 0 1 0 15.6 16 3.5 3.5 0 0 0 22 13v-1A10 10 0 0 0 12 2zm0 13a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5v2h1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v2h6V7a3 3 0 0 0-3-3zm0 9a2 2 0 0 0-1 3.7V19h2v-2.3A2 2 0 0 0 12 13z"/></symbol>
+  <symbol id="i-all" viewBox="0 0 24 24"><path d="m18 7-1.4-1.4-6.3 6.3 1.4 1.4zm4.2-1.4L11.7 16.2 7.5 12l-1.4 1.4 5.6 5.6 12-12zM.4 13.4 6 19l1.4-1.4L1.8 12z"/></symbol>
+  <symbol id="i-none" viewBox="0 0 24 24"><path d="M4 7h11v2H4zm0 4h11v2H4zm0 4h7v2H4zm15.6-1L21 15.4 18.4 18l2.6 2.6-1.4 1.4-2.6-2.6-2.6 2.6L13 20.6l2.6-2.6-2.6-2.6 1.4-1.4 2.6 2.6z"/></symbol>
+</svg>
+<div id="app">
+  <aside id="panel" aria-label="Byeolji">
+    <div class="backdrop" aria-hidden="true"></div>
+    <header class="ph">
+      <a class="brand" href="/en/">Byeolji</a>
+      <button id="btn-settings" class="ib" type="button"><svg><use href="#i-gear"/></svg></button>
+      <button id="btn-account" class="ib" type="button"><svg><use href="#i-user"/></svg><i class="dot" hidden></i></button>
+      <button id="close-panel" class="ib only-narrow" type="button"><svg><use href="#i-min"/></svg></button>
+    </header>
+
+    <!-- 목록 -->
+    <div id="view-main" class="view">
+      <div class="tools">
+        <label class="search"><svg><use href="#i-search"/></svg><input id="search" type="search" autocomplete="off"></label>
+        <div class="region-wrap">
+          <button id="region-btn" class="region-bar" type="button"></button>
+          <div id="region-menu" class="menu" hidden></div>
+        </div>
+        <div class="sel-bar"><span id="sel-count"></span><button id="clear" class="link" type="button" data-t="clearAll"></button></div>
+        <div class="divider"><i></i></div>
+      </div>
+      <div class="scroll">
+        <div id="top-cards"></div>
+        <div id="sections"></div>
+      </div>
+    </div>
+
+    <!-- 설정 -->
+    <div id="view-settings" class="view" hidden>
+      <div class="scroll pad">
+        <button class="back" type="button" data-back><svg><use href="#i-back"/></svg><span data-t="back"></span></button>
+        <h2 data-t="settings"></h2>
+        <h4 data-t="language"></h4><div class="chips" id="set-lang"></div>
+        <h4 data-t="layout"></h4><div class="chips" id="set-layout"></div>
+        <h4 data-t="uiScale"></h4><div class="chips" id="set-ui"></div>
+        <h4 data-t="textScale"></h4><div class="chips" id="set-text"></div>
+        <h4 data-t="theme"></h4><div class="themes" id="set-theme"></div>
+        <h4 data-t="mapOptions"></h4>
+        <label class="row-switch"><span data-t="hideCollected"></span><input id="hide-done" type="checkbox" class="sw"></label>
+        <h4 data-t="about"></h4>
+        <p class="note" data-t="unofficial"></p>
+        <p class="links"><button class="link" type="button" id="show-guide" data-t="showGuide"></button> · <a id="privacy" href="#" target="_blank" rel="noopener" data-t="privacy"></a> · <a href="/en/download/" data-t="getApp"></a></p>
+        <div id="donate"></div>
+      </div>
+    </div>
+
+    <!-- 계정 (account.js 가 채움) -->
+    <div id="view-account" class="view" hidden>
+      <div class="scroll pad">
+        <button class="back" type="button" data-back><svg><use href="#i-back"/></svg><span data-t="back"></span></button>
+        <h2 data-t="account"></h2>
+        <div id="account-box"></div>
+      </div>
+    </div>
+  </aside>
+  <main id="map"></main>
+  <button id="open-panel" class="fab only-narrow" type="button" aria-label="Byeolji"><img src="/icon.png" alt=""></button>
+  <div id="toast" role="status" hidden></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="strings.js"></script>
+<script src="map.js"></script>
+<script type="module" src="account.js"></script>
+</body>
+</html>

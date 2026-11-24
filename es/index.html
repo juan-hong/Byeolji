@@ -1,0 +1,226 @@
+<!doctype html>
+<!-- 자동 생성 (tools/lang_pages.py). 직접 고치지 말고 원본을 고친 뒤 다시 실행 -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="byeolji-lang" content="es">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="naver-site-verification" content="f049a4efc02ebd072002f13bef9f6113899d6d13">
+<title>Byeolji · Mapa de Genshin Impact</title>
+<meta name="description" content="Byeolji: mapa de recursos de Genshin Impact y superposición del mapa sobre el juego. Tu progreso se sincroniza entre web, PC y Android con una cuenta.">
+<link rel="canonical" href="https://byeolji.app/es/">
+<!-- lang-pages:alternates -->
+<link rel="alternate" hreflang="ko" href="https://byeolji.app/">
+<link rel="alternate" hreflang="en" href="https://byeolji.app/en/">
+<link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/">
+<link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/">
+<link rel="alternate" hreflang="id" href="https://byeolji.app/id/">
+<link rel="alternate" hreflang="es" href="https://byeolji.app/es/">
+<link rel="alternate" hreflang="x-default" href="https://byeolji.app/">
+<!-- /lang-pages:alternates -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Byeolji">
+<meta property="og:url" content="https://byeolji.app/es/">
+<meta property="og:title" content="Byeolji · Mapa de Genshin Impact">
+<meta property="og:description" content="Byeolji: mapa de recursos de Genshin Impact y superposición del mapa sobre el juego. Tu progreso se sincroniza entre web, PC y Android con una cuenta.">
+<meta property="og:image" content="https://byeolji.app/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+  .hub { max-width: 1040px; margin: 0 auto; padding: 0 20px 64px; }
+  .hub-top { display: flex; align-items: center; gap: 14px; padding: 18px 0; }
+  .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: auto; }
+  .hub-top .brand img { border-radius: 7px; }
+  .hub-top .brand, .nav-dl { white-space: nowrap; }
+  @media (max-width: 420px) { .hub-top { gap: 8px; } .hub-top select { max-width: 110px; } }
+  .nav-dl { color: var(--dim); text-decoration: none; border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 10px; }
+  .nav-dl:hover { color: var(--gold); border-color: var(--gold); }
+  .lang-label { color: var(--dim); font-size: 14px; margin-right: -6px; white-space: nowrap; }
+  /* 게임 고르기 아래 PC 앱 소개 */
+  .intro { margin-top: 88px; border-top: 1px solid rgba(234, 227, 204, .12); padding-top: 40px; }
+  .hub-top select { background: transparent; color: var(--text); border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 6px; font: inherit; }
+  .hub-top option { background: var(--ink); }
+  .hero { text-align: center; padding: 56px 0 40px; }
+  .hero img { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 8px 30px rgba(0, 0, 0, .35); }
+  .hero h1 { font-size: clamp(30px, 6vw, 46px); margin: 18px 0 6px; letter-spacing: .02em; }
+  .games { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .game {
+    position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 220px; padding: 18px;
+    border: 1px solid rgba(234, 227, 204, .22); border-radius: 16px; overflow: hidden; text-decoration: none; color: var(--text);
+    background: linear-gradient(180deg, rgba(11, 37, 46, 0) 30%, rgba(11, 37, 46, .92) 85%), var(--bg, #123744) var(--pos, center) / cover no-repeat;
+    transition: transform .2s var(--ease), border-color .2s;
+  }
+  a.game:hover { transform: translateY(-3px); border-color: var(--gold); }
+  .game h2 { margin: 0; font-size: 21px; }
+  .game span { color: var(--dim); font-size: 14px; }
+  .game .go { color: var(--gold); }
+  .game.soon { filter: grayscale(1); opacity: .75; cursor: default; }
+  .game .tag { position: absolute; top: 14px; right: 14px; font-size: 12px; border: 1px solid rgba(234, 227, 204, .4); border-radius: 99px; padding: 1px 10px; }
+</style>
+</head>
+<body>
+<div class="hub">
+  <header class="hub-top">
+    <a class="brand" href="/es/"><img src="/icon.png" alt="" width="30" height="30">Byeolji</a>
+    <a class="nav-dl" href="/es/download/" data-t="download">다운로드</a>
+    <label class="lang-label" for="lang">Language :</label>
+    <select id="lang" aria-label="Language">
+      <option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option>
+      <option value="ru">Русский</option><option value="id">Bahasa Indonesia</option><option value="es">Español</option>
+    </select>
+  </header>
+
+  <section class="hero">
+    <img src="/icon.png" alt="Byeolji">
+    <h1>Byeolji</h1>
+  </section>
+
+  <div class="games">
+    <a class="game" href="/es/genshin/map/" style="--bg: url('/shots/game-genshin.webp'); --pos: 62% 30%">
+      <h2 data-t="genshin">원신</h2>
+      <span><span data-t="genshinDesc">자원 지도 · PC 오버레이 · 안드로이드</span> <span class="go">→</span></span>
+    </a>
+    <!-- 준비 중 게임: 흑백 -->
+    <div class="game soon" aria-disabled="true" style="--bg: url('/shots/game-wuwa.webp'); --pos: 45% 25%">
+      <span class="tag" data-t="soon">준비 중</span>
+      <h2 data-t="wuwa">명조</h2>
+    </div>
+    <div class="game soon" aria-disabled="true" style="--bg: url('/shots/game-hsr.webp'); --pos: 50% 30%">
+      <span class="tag" data-t="soon">준비 중</span>
+      <h2 data-t="hsr">붕괴: 스타레일</h2>
+    </div>
+  </div>
+</div>
+
+<!-- PC 앱 소개 (예전 /app/ 페이지 첫 화면·범례·만든 사람). 다른 언어 문장은 i18n.js -->
+<main class="intro">
+  <!-- 첫 화면: 측량도(실제 게임 큰 지도) 위에 투명 별지 한 장 -->
+  <section class="survey" aria-labelledby="title">
+    <div class="sheet-frame">
+      <div class="ticks ticks-top" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+      <div class="ticks ticks-left" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+
+      <div class="plate" id="plate">
+        <img class="map" src="/shots/mond.webp" data-i18n-attr="alt:hero.alt" alt="원신 지도의 몬드성 주변. 투명 시트를 덮은 쪽에만 자원 마커가 보인다." width="2956" height="1806">
+        <div class="film" id="film" aria-hidden="true">
+          <div class="markers" id="markers"></div>
+          <span class="reg reg-tr"></span><span class="reg reg-br"></span>
+        </div>
+        <div class="edge" id="edge" role="slider" tabindex="0" data-i18n-attr="aria-label:hero.slider" aria-label="투명 시트 위치 (덮인 쪽에 마커가 보여요)"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
+          <span class="knob" aria-hidden="true"><svg viewBox="-26 -26 52 52"><path d="M0-22 4.4-4.4 22 0 4.4 4.4 0 22-4.4 4.4-22 0-4.4-4.4z"/><circle r="3.6"/></svg></span>
+        </div>
+        <p class="pencil" aria-hidden="true" data-i18n="hero.drag">← 끌어 보세요</p>
+      </div>
+
+      <div class="label">
+        <h1 id="title" data-i18n="hero.title">지도 위에<br>별지 한 장.</h1>
+        <p class="lede" data-i18n="hero.lede">원신 PC 버전에서 큰 지도와 미니맵 위에 자원 위치를 바로 띄워 주는 무료 원신 보조 프로그램입니다.</p>
+        <a class="dl" href="/es/download/">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11m0 0-4.5-4.5m4.5 4.5 4.5-4.5M4.5 19.5h15"/></svg>
+          <span data-i18n="hero.download">Windows용 내려받기</span>
+        </a>
+        <p class="fine" data-i18n="hero.fine">무료 · Windows 10/11 64비트 · HoYoverse와 무관한 팬 프로젝트</p>
+      </div>
+    </div>
+    <p class="caption" data-i18n="hero.caption">몬드성 주변 지도에 Byeolji 데이터로 워프 포인트, 일곱신상, 민들레 씨앗, 풍차 국화 등 144곳을 앱과 같은 방식으로 찍은 모습.</p>
+  </section>
+
+  <!-- 범례: 지도 아래 붙는 설명 상자처럼 -->
+  <section class="legend" id="how" aria-labelledby="how-h">
+    <h2 id="how-h" data-i18n="how.title">범례</h2>
+    <dl>
+      <div>
+        <dt><span class="mk" style="--c:#295A6B"><img src="/icons/3.png" alt=""></span><span data-i18n="how.map.t"><kbd>M</kbd>으로 지도를 열면</span></dt>
+        <dd data-i18n="how.map.d">지도를 열고 끌고 확대해도 화면을 알아보고 지정한 마커가 따라옵니다. 지하 층도, 컨트롤러 조작 모드도, 여러 비율의 모니터도 지원합니다.</dd>
+      </div>
+      <div>
+        <dt><span class="mk mk-mini" style="--c:#6B4F29"><img src="/icons/43.png" alt=""></span><span data-i18n="how.mini.t">걸어 다닐 땐 미니맵에</span></dt>
+        <dd data-i18n="how.mini.d">미니맵 원 안에도 가까운 자원이 뜹니다. 지도를 다시 열 필요가 없습니다.</dd>
+      </div>
+      <div>
+        <dt><span class="mk mk-done" style="--c:#6B4B29"><img src="/icons/37.png" alt=""></span><span data-i18n="how.done.t">모은 곳은 흐리게</span></dt>
+        <dd data-i18n="how.done.d">마커를 <kbd>Ctrl</kbd>+클릭하면 획득 표시(키는 설정에서 바꿀 수 있습니다). 로그인하면 여러 PC에서 기록이 동기화됩니다(로그인은 선택 사항).</dd>
+      </div>
+    </dl>
+    <table class="keys">
+      <caption data-i18n="keys.title">단축키</caption>
+      <tbody>
+        <tr><th scope="row"><kbd>F6</kbd></th><td data-i18n="keys.f6">지도 마커 켜기·끄기</td></tr>
+        <tr><th scope="row"><kbd>F7</kbd></th><td data-i18n="keys.f7">자원 고르는 패널 열기·닫기</td></tr>
+        <tr><th scope="row"><kbd>F8</kbd></th><td data-i18n="keys.f8">위치 다시 찾기</td></tr>
+        <tr><th scope="row"><kbd>F10</kbd></th><td data-i18n="keys.f10">진단 화면</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div>
+      <h2 id="about-h" data-i18n="about.title">만든 사람</h2>
+      <p data-i18n="about.text">원신 좋아하는 대학생이에요. 자원들의 위치를 오버레이로 보여 주고 싶어서 만들었습니다. 사용자 피드백을 굉장히 중요하게 생각합니다. 발견하신 사소한 버그나 건의는 메일로 편하게 보내 주세요.</p>
+      <p class="row">
+        <a class="line" href="mailto:support@byeolji.app" data-i18n="about.mail">support@byeolji.app(메일)</a>
+        <a class="line" href="https://ko-fi.com/byeolji" data-i18n="about.kofi">Ko-fi로 후원</a>
+        <a class="line" href="https://qr.kakaopay.com/FJiI97iYg" data-only="ko">카카오페이로 후원</a>
+      </p>
+    </div>
+    <div>
+      <h2 data-i18n="privacy.title">개인정보</h2>
+      <p data-i18n="privacy.text">게임 화면은 위치를 알아보는 데만 쓰고, 절대 내 PC 밖으로 보내지 않습니다. 로그인은 동기화에만 쓰이며 선택 사항입니다.</p>
+      <p class="row"><a class="line" href="https://genshin-overlay-api-483165482465.us-central1.run.app/privacy" data-i18n="privacy.link">개인정보처리방침</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p data-i18n="footer">Byeolji는 HoYoverse와 관계없는 개인 팬 프로젝트이며, 원신과 게임 데이터·이미지의 권리는 HoYoverse에 있습니다.</p>
+</footer>
+
+<script src="/shots/mond.js"></script>
+<script src="/i18n.js"></script>
+<script src="/site.js"></script>
+<script>
+(() => {
+  const S = {
+    en: { download: 'Download', windows: 'Windows', android: 'Android', genshin: 'Genshin Impact', genshinDesc: 'Resource map · PC overlay · Android',
+      soon: 'Coming soon', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', },
+    ja: { download: 'ダウンロード', windows: 'Windows', android: 'Android', genshin: '原神', genshinDesc: '資源マップ · PCオーバーレイ · Android',
+      soon: '準備中', wuwa: '鳴潮', hsr: '崩壊：スターレイル', },
+    zh: { download: '下载', windows: 'Windows', android: 'Android', genshin: '原神', genshinDesc: '资源地图 · PC 悬浮窗 · 安卓',
+      soon: '即将推出', wuwa: '鸣潮', hsr: '崩坏：星穹铁道', },
+    ru: { download: 'Скачать', windows: 'Windows', android: 'Android', genshin: 'Genshin Impact', genshinDesc: 'Карта ресурсов · оверлей для ПК · Android',
+      soon: 'Скоро', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', },
+    id: { download: 'Unduh', windows: 'Windows', android: 'Android', genshin: 'Genshin Impact', genshinDesc: 'Peta sumber daya · overlay PC · Android',
+      soon: 'Segera hadir', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', },
+    es: { download: 'Descargar', windows: 'Windows', android: 'Android', genshin: 'Genshin Impact', genshinDesc: 'Mapa de recursos · overlay de PC · Android',
+      soon: 'Próximamente', wuwa: 'Wuthering Waves', hsr: 'Honkai: Star Rail', },
+  };
+  const LANGS = ['ko', 'en', 'ja', 'zh', 'ru', 'id', 'es'];
+  const ko = {};
+  document.querySelectorAll('[data-t]').forEach((el) => { ko[el.dataset.t] = el.textContent; });
+  const pick = () => {
+    const q = new URLSearchParams(location.search).get('lang');
+    if (LANGS.includes(q)) return q;
+    try { const s = localStorage.getItem('lang'); if (LANGS.includes(s)) return s; } catch {}
+    for (const l of navigator.languages || ['en']) { const b = l.slice(0, 2).toLowerCase(); if (LANGS.includes(b)) return b; }
+    return 'en';
+  };
+  const apply = (lang) => {
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = (S[lang] || ko)[el.dataset.t] ?? ko[el.dataset.t]; });
+    document.getElementById('lang').value = lang;
+  };
+  document.getElementById('lang').addEventListener('change', (e) => {
+    try { localStorage.setItem('lang', e.target.value); } catch {}
+    apply(e.target.value);
+  });
+  apply(pick());
+})();
+</script>
+</body>
+</html>

@@ -14,6 +14,9 @@
     set(k, v) { try { localStorage.setItem('byeolji.map.' + k, JSON.stringify(v)); } catch {} },
   };
   const pickLang = () => {
+    // 언어별 주소(/en/genshin/map/ 등)는 그 언어로 고정
+    const pageLang = document.querySelector('meta[name="byeolji-lang"]')?.content;
+    if (LANGS.includes(pageLang)) return pageLang;
     const q = new URLSearchParams(location.search).get('lang');
     if (LANGS.includes(q)) return q;
     try { const s = localStorage.getItem('lang'); if (LANGS.includes(s)) return s; } catch {}

@@ -1,105 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://byeolji.app/download/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/?lang=ko"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/download/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/download/?lang=ja"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/download/?lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/download/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/download/?lang=id"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/download/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
-  </url>
-  <url>
-    <loc>https://byeolji.app/download/?lang=ko</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/?lang=ko"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/download/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/download/?lang=ja"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/download/?lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/download/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/download/?lang=id"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/download/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
-  </url>
-  <url>
-    <loc>https://byeolji.app/download/?lang=en</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/?lang=ko"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/download/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/download/?lang=ja"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/download/?lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/download/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/download/?lang=id"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/download/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
-  </url>
-  <url>
-    <loc>https://byeolji.app/download/?lang=ja</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/?lang=ko"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/download/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/download/?lang=ja"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/download/?lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/download/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/download/?lang=id"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/download/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
-  </url>
-  <url>
-    <loc>https://byeolji.app/download/?lang=zh</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/?lang=ko"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/download/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/download/?lang=ja"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/download/?lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/download/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/download/?lang=id"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/download/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
-  </url>
-  <url>
-    <loc>https://byeolji.app/download/?lang=ru</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/?lang=ko"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/download/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/download/?lang=ja"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/download/?lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/download/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/download/?lang=id"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/download/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
-  </url>
-  <url>
-    <loc>https://byeolji.app/download/?lang=id</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/?lang=ko"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/download/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/download/?lang=ja"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/download/?lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/download/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/download/?lang=id"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/download/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
-  </url>
-  <url>
-    <loc>https://byeolji.app/download/?lang=es</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/?lang=ko"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/download/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/download/?lang=ja"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/download/?lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/download/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/download/?lang=id"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/download/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
-  </url>
-  <url>
     <loc>https://byeolji.app/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/id/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/es/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/download/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/download/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/download/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/en/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/download/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/download/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/download/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/ja/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/download/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/download/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/download/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/zh/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/download/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/download/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/download/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/ru/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/download/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/download/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/download/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/id/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/download/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/download/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/download/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/es/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/download/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/download/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/download/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/download/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/download/"/>
   </url>
   <url>
     <loc>https://byeolji.app/genshin/map/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/genshin/map/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/en/genshin/map/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/genshin/map/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/ja/genshin/map/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/genshin/map/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/zh/genshin/map/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/genshin/map/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/ru/genshin/map/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/genshin/map/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/id/genshin/map/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/genshin/map/"/>
+  </url>
+  <url>
+    <loc>https://byeolji.app/es/genshin/map/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://byeolji.app/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://byeolji.app/en/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://byeolji.app/id/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://byeolji.app/es/genshin/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://byeolji.app/genshin/map/"/>
   </url>
 </urlset>
