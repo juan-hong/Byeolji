@@ -230,3 +230,12 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
   .grip { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* 즐겨찾기 별: 카드 누르기와 따로. 넣은 카드는 금색 (사이트 북극성) */
+.fav { display: inline-flex; flex: none; width: 22px; height: 22px; align-items: center; justify-content: center; border-radius: 6px; color: var(--dim); opacity: .7; cursor: pointer; }
+.fav svg { width: 17px; height: 17px; fill: currentColor; }
+.fav:hover { opacity: 1; background: rgba(255, 255, 255, .08); }
+.fav.on { color: #F4C150; opacity: 1; }
+.tile .fav { position: absolute; right: 27px; top: 4px; }
+.tile.on .fav:not(.on) { color: var(--on-sel); }
+.sec.favs .sec-h .nm::before { content: "\2605"; color: #F4C150; margin-right: 6px; }

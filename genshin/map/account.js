@@ -70,6 +70,35 @@ async function push() {
   }
 }
 
+// 즐겨찾기: 로그인 때 서버와 로컬 중 나중에 바꾼 쪽을 씀, 바꾸면 2초 뒤 올림
+let favTimer = null;
+async function pullFavorites() {
+  try {
+    const data = await call('GET', `/v1/favorites?game=${GAME}`);
+    const local = mapApi()?.favorites();
+    if (!local) return;
+    const remoteAt = data?.updated_at ? Date.parse(data.updated_at) : 0;
+    if (!data?.updated_at || (local.dirty && local.at > remoteAt)) {
+      if (local.cards.length || local.dirty) await pushFavorites();
+      return;
+    }
+    mapApi()?.setFavorites(data.cards || [], remoteAt);
+  } catch (e) {
+    console.warn(e);
+  }
+}
+async function pushFavorites() {
+  clearTimeout(favTimer);
+  favTimer = null;
+  if (!user) return;
+  try {
+    await call('PUT', `/v1/favorites?game=${GAME}`, { cards: mapApi()?.favorites().cards || [] });
+    mapApi()?.favoritesPushed();
+  } catch (e) {
+    console.warn(e);
+  }
+}
+
 function setStatus(s) { status = s; render(lang); }
 
 // Firebase 오류 코드 -> 앱과 같은 문구 (err_*)
@@ -103,7 +132,7 @@ function render(l) {
     box.innerHTML = `<div class="who"><b>${esc(user.email || '')}</b><span class="msg">${esc(status || t('synced'))}</span></div>
       <button class="outline" id="acc-out" type="button">${esc(t('signOut'))}</button>
       ${error ? `<div class="err">${esc(error)}</div>` : ''}`;
-    $('acc-out').onclick = () => run(async () => { await push(); await signOut(auth); });
+    $('acc-out').onclick = () => run(async () => { await push(); if (favTimer) await pushFavorites(); await signOut(auth); });
     return;
   }
   const up = mode === 'signUp';
@@ -137,13 +166,21 @@ window.ByeoljiAccount = {
     clearTimeout(pushTimer);
     pushTimer = setTimeout(push, 4000);
   },
+  favoritesChanged() {
+    if (!user) return;
+    clearTimeout(favTimer);
+    favTimer = setTimeout(pushFavorites, 2000);
+  },
 };
 
-document.addEventListener('visibilitychange', () => { if (document.hidden && pushTimer) push(); });
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && pushTimer) push();
+  if (document.hidden && favTimer) pushFavorites();
+});
 onAuthStateChanged(auth, (u) => {
   const was = user;
   user = u;
-  if (u && !was) pullAndMerge();
+  if (u && !was) { pullAndMerge(); pullFavorites(); }
   if (!u) status = '';
   render(mapApi()?.lang() || lang);
 });

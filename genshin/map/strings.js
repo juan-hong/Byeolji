@@ -1,6 +1,9 @@
 // 패널 문자열. 앱 overlay_app/lib/core/l10n.dart 에서 뽑음 (웹 전용 몇 개 추가)
 window.BYEOLJI_STR = {
 "en": {
+"favorites": "Favorites",
+"favoriteAdd": "Add to favorites",
+"favoriteRemove": "Remove from favorites",
 "search": "Find by name",
 "allRegions": "All",
 "here": "Current area",
@@ -91,6 +94,9 @@ window.BYEOLJI_STR = {
 "getApp": "Get the app"
 },
 "ko": {
+"favorites": "즐겨찾기",
+"favoriteAdd": "즐겨찾기에 추가",
+"favoriteRemove": "즐겨찾기에서 빼기",
 "search": "이름으로 찾기",
 "allRegions": "전체",
 "here": "현재 위치",
@@ -181,6 +187,9 @@ window.BYEOLJI_STR = {
 "getApp": "앱 받기"
 },
 "ja": {
+"favorites": "お気に入り",
+"favoriteAdd": "お気に入りに追加",
+"favoriteRemove": "お気に入りから外す",
 "search": "名前で検索",
 "allRegions": "すべて",
 "here": "現在地",
@@ -269,6 +278,9 @@ window.BYEOLJI_STR = {
 "getApp": "アプリ"
 },
 "zh": {
+"favorites": "收藏",
+"favoriteAdd": "加入收藏",
+"favoriteRemove": "取消收藏",
 "search": "按名称搜索",
 "allRegions": "全部",
 "here": "当前位置",
@@ -357,6 +369,9 @@ window.BYEOLJI_STR = {
 "getApp": "下载应用"
 },
 "ru": {
+"favorites": "Избранное",
+"favoriteAdd": "Добавить в избранное",
+"favoriteRemove": "Убрать из избранного",
 "search": "Поиск по названию",
 "allRegions": "Все",
 "here": "Текущая зона",
@@ -447,6 +462,9 @@ window.BYEOLJI_STR = {
 "getApp": "Скачать приложение"
 },
 "id": {
+"favorites": "Favorit",
+"favoriteAdd": "Tambahkan ke favorit",
+"favoriteRemove": "Hapus dari favorit",
 "search": "Cari berdasarkan nama",
 "allRegions": "Semua",
 "here": "Area saat ini",
@@ -537,6 +555,9 @@ window.BYEOLJI_STR = {
 "getApp": "Unduh aplikasi"
 },
 "es": {
+"favorites": "Favoritos",
+"favoriteAdd": "Añadir a favoritos",
+"favoriteRemove": "Quitar de favoritos",
 "search": "Buscar por nombre",
 "allRegions": "Todas",
 "here": "Zona actual",

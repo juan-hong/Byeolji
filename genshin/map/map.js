@@ -42,6 +42,10 @@
     theme: store.get('theme', 'd'),
     guideDone: store.get('guideDone', false),
     dismissed: new Set(store.get('dismissed', [])),
+    // 즐겨찾기 카드 이름 (넣은 순서). 맨 위 모음. favAt = 마지막으로 바꾼 시각(ms), favDirty = 아직 안 올림
+    favorites: store.get('favorites', []),
+    favAt: store.get('favAt', 0),
+    favDirty: store.get('favDirty', false),
     query: '',
     area: null,          // 지금 보고 있는 지역 (자동)
     view: 'main',
@@ -361,7 +365,9 @@
     const region = panelRegion();
     const html = [];
     let any = false;
-    for (const sec of data.cats.sections) {
+    // 즐겨찾기 모음을 맨 위에 (카드는 원래 섹션에도 그대로)
+    const favSec = { name: FAV_SEC, names: { [lang]: t('favorites') }, cards: state.favorites.map((n) => byName.get(n)).filter(Boolean) };
+    for (const sec of favSec.cards.length ? [favSec, ...data.cats.sections] : data.cats.sections) {
       const cards = sec.cards.filter((c) => {
         if (region != null && c.count_by_area && !c.count_by_area[region]) return false;
         if (!q) return true;
@@ -374,7 +380,7 @@
       const body = state.layout === 'card'
         ? `<div class="grid">${cards.map((c) => tile(c, region)).join('')}</div>`
         : cards.map((c) => row(c, region)).join('');
-      html.push(`<section class="sec${closed ? ' closed' : ''}" data-sec="${esc(sec.name)}">
+      html.push(`<section class="sec${closed ? ' closed' : ''}${sec === favSec ? ' favs' : ''}" data-sec="${esc(sec.name)}">
         <div class="sec-h"><span class="nm">${esc(nameOf(sec))}</span><span class="ct${on ? ' on' : ''}">${on ? on + ' / ' : ''}${cards.length}</span><span class="chev">${icon('down')}</span></div>
         <div class="body">${body}</div></section>`);
     }
@@ -393,6 +399,25 @@
   }
 
   const badge = (c) => `<span class="badge" style="background:${c.color}"><img src="icons/${c.icon}.png" alt="" loading="lazy"></span>`;
+  const FAV_SEC = '__favorites__';
+  const fav = (c) => {
+    const on = state.favorites.includes(c.name);
+    return `<span class="fav${on ? ' on' : ''}" data-fav="${esc(c.name)}" title="${esc(t(on ? 'favoriteRemove' : 'favoriteAdd'))}">${icon(on ? 'star' : 'star-o')}</span>`;
+  };
+  function toggleFav(name) {
+    const i = state.favorites.indexOf(name);
+    i >= 0 ? state.favorites.splice(i, 1) : state.favorites.push(name);
+    state.favAt = Date.now();
+    state.favDirty = true;
+    saveFavorites();
+    renderSections();
+    window.ByeoljiAccount?.favoritesChanged();
+  }
+  function saveFavorites() {
+    store.set('favorites', state.favorites);
+    store.set('favAt', state.favAt);
+    store.set('favDirty', state.favDirty);
+  }
   const acts = (c) => `<span class="acts"><span data-bulk="1" data-name="${esc(c.name)}" title="${esc(t('collectAll'))}">${icon('all')}</span><span data-bulk="0" data-name="${esc(c.name)}" title="${esc(t('uncollectAll'))}">${icon('none')}</span></span>`;
 
   // 목록 한 줄: 아이콘 · 이름 · 개수 · 스위치, 아래 획득 막대
@@ -400,7 +425,7 @@
     const on = state.cards.has(c.name);
     const [done, total] = counts(c, region);
     return `<div role="button" tabindex="0" aria-pressed="${on}" class="row${on ? ' on' : ''}" data-card="${esc(c.name)}">${badge(c)}
-      <span class="nm">${esc(nameOf(c))}</span>${acts(c)}<span class="ct">${done}/${total}</span>
+      <span class="nm">${esc(nameOf(c))}</span>${acts(c)}<span class="ct">${done}/${total}</span>${fav(c)}
       <input type="checkbox" class="sw" tabindex="-1" ${on ? 'checked' : ''} aria-hidden="true">
       <span class="bar" style="width:${total ? (done / total) * 100 : 0}%"></span></div>`;
   }
@@ -411,7 +436,7 @@
     const [done, total] = counts(c, region);
     const sub = done > 0 ? t('progress').replace('{done}', done).replace('{total}', total) : t('spots').replace('{n}', total);
     return `<div role="button" tabindex="0" aria-pressed="${on}" class="tile${on ? ' on' : ''}" data-card="${esc(c.name)}">${badge(c)}
-      <span class="ck">${icon('check')}</span><span class="nm">${esc(nameOf(c))}</span><span class="ct">${esc(sub)}</span>${acts(c)}</div>`;
+      <span class="ck">${icon('check')}</span>${fav(c)}<span class="nm">${esc(nameOf(c))}</span><span class="ct">${esc(sub)}</span>${acts(c)}</div>`;
   }
 
   function bulk(name, collected) {
@@ -446,6 +471,8 @@
     $('sections').addEventListener('click', (e) => {
       const b = e.target.closest('[data-bulk]');
       if (b) { e.stopPropagation(); bulk(b.dataset.name, b.dataset.bulk === '1'); return; }
+      const f = e.target.closest('[data-fav]');
+      if (f) { e.stopPropagation(); toggleFav(f.dataset.fav); return; }
       const card = e.target.closest('[data-card]');
       if (card) {
         const name = card.dataset.card;
@@ -552,6 +579,14 @@
       saveProgress();
       if (data) { updateVisible(); renderSections(); }
     },
+    // 즐겨찾기 동기화 (account.js): 마지막에 바꾼 쪽이 이김
+    favorites: () => ({ cards: [...state.favorites], at: state.favAt, dirty: state.favDirty }),
+    setFavorites(cards, at) {
+      state.favorites = [...cards]; state.favAt = at; state.favDirty = false;
+      saveFavorites();
+      if (data) renderSections();
+    },
+    favoritesPushed() { state.favDirty = false; saveFavorites(); },
     lang: () => lang,
     t,
   };
