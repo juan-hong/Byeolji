@@ -34,8 +34,34 @@ async function call(method, path, body) {
     headers: { Authorization: `Bearer ${token}`, ...(body ? { 'Content-Type': 'application/json' } : {}) },
     body: body ? JSON.stringify(body) : undefined,
   });
-  if (!res.ok) throw new Error(`${method} ${path} ${res.status}`);
+  if (!res.ok) {
+    const err = new Error(`${method} ${path} ${res.status}`);
+    err.status = res.status;
+    err.data = await res.json().catch(() => null);
+    throw err;
+  }
   return res.status === 204 ? null : res.json().catch(() => null);
+}
+
+// 마지막으로 서버와 맞춘 updated_at (undefined = 아직 모름). 올릴 때 같이 보내서
+// 그 사이 앱·다른 탭이 쓴 기록을 덮어쓰지 않게 함. 409 면 서버 기록과 합쳐서 다시
+let serverAt;
+async function upload() {
+  for (let i = 0; ; i++) {
+    const body = { collected: mapApi()?.progress() || [] };
+    if (serverAt !== undefined) body.base = serverAt;
+    try {
+      const res = await call('PUT', `/v1/progress?game=${GAME}`, body);
+      serverAt = res?.updated_at ?? null;
+      return;
+    } catch (e) {
+      if (e.status !== 409 || i >= 3) throw e;
+      const local = new Set(mapApi()?.progress() || []);
+      const merged = new Set([...(e.data?.collected || []), ...local]);
+      if (merged.size !== local.size) mapApi()?.setProgress([...merged]);
+      serverAt = e.data?.updated_at ?? null;
+    }
+  }
 }
 
 // 로그인 직후: 서버 기록과 합집합 (앱과 같음). 로컬에만 있던 것도 올림
@@ -43,11 +69,12 @@ async function pullAndMerge() {
   setStatus(t('syncing'));
   try {
     const data = await call('GET', `/v1/progress?game=${GAME}`);
+    serverAt = data?.updated_at ?? null;
     const remote = new Set(data?.collected || []);
     const local = new Set(mapApi()?.progress() || []);
     const merged = new Set([...remote, ...local]);
     if (merged.size !== local.size) mapApi()?.setProgress([...merged]);
-    if (merged.size !== remote.size) await call('PUT', `/v1/progress?game=${GAME}`, { collected: [...merged] });
+    if (merged.size !== remote.size) await upload();
     setStatus(t('synced'));
   } catch (e) {
     console.warn(e);
@@ -62,7 +89,7 @@ async function push() {
   if (!user) return;
   setStatus(t('syncing'));
   try {
-    await call('PUT', `/v1/progress?game=${GAME}`, { collected: mapApi()?.progress() || [] });
+    await upload();
     setStatus(t('synced'));
   } catch (e) {
     console.warn(e);
@@ -181,7 +208,7 @@ onAuthStateChanged(auth, (u) => {
   const was = user;
   user = u;
   if (u && !was) { pullAndMerge(); pullFavorites(); }
-  if (!u) status = '';
+  if (!u) { status = ''; serverAt = undefined; }
   render(mapApi()?.lang() || lang);
 });
 render(mapApi()?.lang() || lang);
