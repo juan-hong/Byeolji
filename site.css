@@ -148,18 +148,61 @@ section:not(.survey) { max-width: 1240px; margin: 0 auto; padding: 96px 28px 0; 
 h2 { font-size: 28px; margin: 0 0 22px; line-height: 1.3; }
 h3 { font-size: 18px; margin: 18px 0 6px; }
 
-/* 범례 */
-.legend { display: grid; grid-template-columns: 1fr 300px; gap: 20px 64px; align-items: start; }
-.legend h2 { grid-column: 1 / -1; border-bottom: 1px solid #2E5A66; padding-bottom: 12px; }
-.legend dl { margin: 0; display: grid; gap: 22px; }
-.legend dt { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 18px; }
-.legend dt .mk { --s: 30px; flex: none; }
-.legend dt .mk-mini { --s: 20px; margin: 0 5px; }
-.legend dd { margin: 4px 0 0 44px; color: var(--dim); max-width: 60ch; }
-.keys { border-collapse: collapse; width: 100%; font-size: 15px; }
-.keys caption { text-align: left; font-weight: 700; padding-bottom: 8px; }
-.keys th { text-align: left; padding: 8px 14px 8px 0; width: 64px; font-weight: 400; }
-.keys td { padding: 8px 0; color: var(--dim); border-bottom: 1px solid rgba(46, 90, 102, .6); }
+/* 범례: 인쇄 지도의 범례 상자 (이중 테두리, 제목이 윗선에 걸침) */
+.legend-box {
+  position: relative; margin-top: 18px; padding: 44px 40px 30px;
+  background: rgba(11, 37, 46, .72); border: 1.5px solid var(--edge);
+  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, .5);
+}
+.legend-box::after { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(234, 227, 204, .26); pointer-events: none; }
+.legend-box h2 {
+  position: absolute; top: 0; left: 32px; transform: translateY(-50%); margin: 0; z-index: 1;
+  display: flex; align-items: center; gap: 10px; padding: 2px 16px;
+  background: var(--ink); border: 1.5px solid var(--edge); font-size: 22px; line-height: 1.5;
+}
+.legend-box h2::before { /* 북극성 */
+  content: ""; width: 14px; height: 14px; background: var(--gold);
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+}
+.legend-sub { margin: 0 0 26px; color: #8FA6A9; font-size: 14.5px; }
+.symbols { margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+.symbols > div { padding: 0 30px; border-left: 1px solid rgba(234, 227, 204, .16); }
+.symbols > div:first-child { padding-left: 0; border-left: 0; }
+.symbols > div:last-child { padding-right: 0; }
+.symbols dt { display: grid; gap: 16px; font-weight: 700; font-size: 18px; line-height: 1.45; }
+.symbols dd { margin: 8px 0 0; color: var(--dim); font-size: 15.5px; line-height: 1.7; }
+
+/* 기호 견본: 게임에서 실제로 보이는 모습을 작게 */
+.sym { position: relative; width: 96px; height: 64px; display: grid; place-items: center; border: 1px solid rgba(234, 227, 204, .22); overflow: hidden; }
+.sym .mk { --s: 30px; position: relative; z-index: 1; }
+.sym-map { /* 큰 지도: 격자 + 등고선 조각 */
+  background:
+    radial-gradient(ellipse 70% 55% at 30% 70%, transparent 58%, rgba(143, 183, 181, .28) 59% 61%, transparent 62%),
+    radial-gradient(ellipse 90% 70% at 30% 70%, transparent 63%, rgba(143, 183, 181, .2) 64% 66%, transparent 67%),
+    linear-gradient(rgba(143, 183, 181, .12) 1px, transparent 1px) 0 0 / 16px 16px,
+    linear-gradient(90deg, rgba(143, 183, 181, .12) 1px, transparent 1px) 0 0 / 16px 16px,
+    #1A4552;
+}
+.sym-mini { border: 0; } /* 미니맵: 크림 원 안에 마커와 내 위치 */
+.sym-mini::before {
+  content: ""; position: absolute; width: 60px; height: 60px; border-radius: 50%;
+  background: radial-gradient(circle, #1F4D59 0 60%, #183F4A 100%); border: 2px solid rgba(234, 227, 204, .7);
+  box-shadow: inset 0 0 0 4px rgba(11, 37, 46, .6);
+}
+.sym-mini .mk { --s: 22px; transform: translate(-9px, -8px); }
+.sym-mini .you { position: absolute; z-index: 1; width: 0; height: 0; border: 5px solid transparent; border-bottom: 9px solid var(--edge); transform: translate(8px, 6px) rotate(30deg); }
+.sym-done { background: #1A4552; }
+.sym-done .mk { opacity: .45; }
+.sym-done svg { position: absolute; z-index: 2; width: 26px; height: 26px; transform: translate(14px, 10px); fill: none; stroke: var(--gold); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* 단축키 줄 */
+.keys { margin-top: 30px; padding-top: 22px; border-top: 1px dashed rgba(234, 227, 204, .22); display: flex; align-items: baseline; gap: 14px 30px; }
+.keys h3 { margin: 0; font-size: 15px; color: var(--dim); font-weight: 700; white-space: nowrap; }
+.keys ul { list-style: none; margin: 0; padding: 0; flex: 1; display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; gap: 12px 26px; }
+.keys li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--dim); }
+.keys kbd { min-width: 2.6em; text-align: center; color: var(--text); background: #143C48; font-size: 14px; padding: 2px .5em; }
+.byline { margin-left: 10px; font-size: .7em; color: var(--gold); font-weight: 700; letter-spacing: .02em; }
+.byline::before { content: "· "; color: var(--dim); }
 
 /* 설치 */
 .why { max-width: 66ch; color: var(--dim); margin: 0 0 40px; }
@@ -202,7 +245,14 @@ footer p { margin: 0; }
   .ticks { display: none; }
   .label { position: static; width: auto; margin-bottom: 18px; }
   .caption { margin-left: 0; }
-  .legend, .about { grid-template-columns: 1fr; gap: 28px; }
+  .about { grid-template-columns: 1fr; gap: 28px; }
+  .legend-box { padding: 40px 22px 24px; }
+  .symbols { grid-template-columns: 1fr; gap: 26px; }
+  .symbols > div { padding: 0; border-left: 0; }
+  .symbols > div + div { padding-top: 26px; border-top: 1px solid rgba(234, 227, 204, .16); }
+  .symbols dt { grid-template-columns: 96px 1fr; align-items: center; }
+  .keys { flex-direction: column; }
+  .keys ul { grid-template-columns: 1fr; width: 100%; }
   .steps { grid-template-columns: 1fr; }
   section:not(.survey) { padding-top: 72px; }
 }
