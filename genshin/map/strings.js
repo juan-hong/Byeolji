@@ -1,6 +1,7 @@
 // 패널 문자열. 앱 overlay_app/lib/core/l10n.dart 에서 뽑음 (웹 전용 몇 개 추가)
 window.BYEOLJI_STR = {
 "en": {
+"guide": "How to use",
 "favorites": "Favorites",
 "favoriteAdd": "Add to favorites",
 "favoriteRemove": "Remove from favorites",
@@ -94,6 +95,7 @@ window.BYEOLJI_STR = {
 "getApp": "Get the app"
 },
 "ko": {
+"guide": "사용법",
 "favorites": "즐겨찾기",
 "favoriteAdd": "즐겨찾기에 추가",
 "favoriteRemove": "즐겨찾기에서 빼기",
@@ -187,6 +189,7 @@ window.BYEOLJI_STR = {
 "getApp": "앱 받기"
 },
 "ja": {
+"guide": "使い方",
 "favorites": "お気に入り",
 "favoriteAdd": "お気に入りに追加",
 "favoriteRemove": "お気に入りから外す",
@@ -278,6 +281,7 @@ window.BYEOLJI_STR = {
 "getApp": "アプリ"
 },
 "zh": {
+"guide": "使用方法",
 "favorites": "收藏",
 "favoriteAdd": "加入收藏",
 "favoriteRemove": "取消收藏",
@@ -369,6 +373,7 @@ window.BYEOLJI_STR = {
 "getApp": "下载应用"
 },
 "ru": {
+"guide": "Как пользоваться",
 "favorites": "Избранное",
 "favoriteAdd": "Добавить в избранное",
 "favoriteRemove": "Убрать из избранного",
@@ -462,6 +467,7 @@ window.BYEOLJI_STR = {
 "getApp": "Скачать приложение"
 },
 "id": {
+"guide": "Cara pakai",
 "favorites": "Favorit",
 "favoriteAdd": "Tambahkan ke favorit",
 "favoriteRemove": "Hapus dari favorit",
@@ -555,6 +561,7 @@ window.BYEOLJI_STR = {
 "getApp": "Unduh aplikasi"
 },
 "es": {
+"guide": "Cómo se usa",
 "favorites": "Favoritos",
 "favoriteAdd": "Añadir a favoritos",
 "favoriteRemove": "Quitar de favoritos",

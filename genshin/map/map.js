@@ -276,6 +276,8 @@
     applyLook();
     $('search').placeholder = t('search');
     document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = t(el.dataset.t); });
+    $('btn-guide').title = t('guide');
+    $('btn-guide').setAttribute('aria-label', t('guide'));
     $('btn-settings').title = t('settings');
     $('btn-account').title = t('account');
     $('close-panel').title = t('closePanel');
