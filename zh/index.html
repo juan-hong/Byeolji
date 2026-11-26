@@ -36,7 +36,8 @@
   /* 큰 별이 오른쪽으로 삐져나가도 가로 스크롤 안 생기게 */
   body { overflow-x: clip; }
   .hub-top { position: relative; z-index: 2; display: flex; align-items: center; gap: 14px; padding: 16px 0; }
-  .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: auto; white-space: nowrap; }
+  .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: 18px; white-space: nowrap; }
+  .nav-end { margin-right: auto; }
   .hub-top .brand img { border-radius: 7px; }
   .nav-dl, .hub-top select { min-height: 40px; display: inline-flex; align-items: center; color: var(--text); text-decoration: none;
     border: 1.5px solid rgba(234, 227, 204, .35); border-radius: 6px; padding: 0 14px; font: inherit; font-size: 15px; background: rgba(11, 37, 46, .55); white-space: nowrap; }
@@ -44,7 +45,9 @@
   .hub-top option { background: var(--ink); color: var(--text); }
   .lang-label { color: var(--dim); font-size: 14px; margin-right: -6px; white-space: nowrap; }
   @media (max-width: 560px) {
-    .hub-top { padding: 12px 0; gap: 8px; }
+    .hub-top { padding: 12px 0; gap: 8px; flex-wrap: wrap; }
+    .hub-top .brand { margin-right: auto; }
+    .nav-end { margin-right: 0; }
     .lang-label { display: none; }
     .nav-dl, .hub-top select { min-height: 44px; padding: 0 10px; }
     .hub-top select { max-width: 116px; }
@@ -108,6 +111,7 @@
   <header class="hub-top">
     <a class="brand" href="/zh/"><img src="/icon.png" alt="" width="30" height="30">Byeolji</a>
     <a class="nav-dl" href="/zh/download/" data-t="download">다운로드</a>
+    <a class="nav-dl nav-end" href="/zh/guide/" data-i18n="nav.guide">사용법</a>
     <label class="lang-label" for="lang">Language :</label>
     <select id="lang" aria-label="Language">
       <option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option>

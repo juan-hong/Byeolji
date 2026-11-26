@@ -1,0 +1,218 @@
+<!doctype html>
+<!-- 자동 생성 (tools/lang_pages.py). 직접 고치지 말고 원본을 고친 뒤 다시 실행 -->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<base href="/guide/">
+<meta name="byeolji-lang" content="ja">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Byeolji · 使い方</title>
+<meta name="description" content="Byeolji の使い方: 原神PCオーバーレイ(Windows)とAndroidアプリ。地図を開く、素材を選ぶ、入手済みにする、ショートカット、フローティング・リアルタイム追跡、アカウント同期。">
+<link rel="canonical" href="https://byeolji.app/ja/guide/">
+<!-- lang-pages:alternates -->
+<link rel="alternate" hreflang="ko" href="https://byeolji.app/guide/">
+<link rel="alternate" hreflang="en" href="https://byeolji.app/en/guide/">
+<link rel="alternate" hreflang="ja" href="https://byeolji.app/ja/guide/">
+<link rel="alternate" hreflang="zh-Hans" href="https://byeolji.app/zh/guide/">
+<link rel="alternate" hreflang="ru" href="https://byeolji.app/ru/guide/">
+<link rel="alternate" hreflang="id" href="https://byeolji.app/id/guide/">
+<link rel="alternate" hreflang="es" href="https://byeolji.app/es/guide/">
+<link rel="alternate" hreflang="x-default" href="https://byeolji.app/guide/">
+<!-- /lang-pages:alternates -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Byeolji">
+<meta property="og:url" content="https://byeolji.app/ja/guide/">
+<meta property="og:title" content="Byeolji · 使い方">
+<meta property="og:description" content="Byeolji の使い方: 原神PCオーバーレイ(Windows)とAndroidアプリ。地図を開く、素材を選ぶ、入手済みにする、ショートカット、フローティング・リアルタイム追跡、アカウント同期。">
+<meta property="og:image" content="https://byeolji.app/og.jpg">
+<link rel="icon" href="/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+  .hub { max-width: 1040px; margin: 0 auto; padding: 0 20px 40px; }
+  .hub-top { display: flex; align-items: center; gap: 10px; padding: 16px 0; }
+  .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: 18px; white-space: nowrap; }
+  .hub-top .brand img { border-radius: 7px; }
+  .nav-dl, .hub-top select { min-height: 40px; display: inline-flex; align-items: center; color: var(--text); text-decoration: none;
+    border: 1.5px solid rgba(234, 227, 204, .35); border-radius: 6px; padding: 0 14px; font: inherit; font-size: 15px; background: rgba(11, 37, 46, .55); white-space: nowrap; }
+  .nav-dl:hover, .hub-top select:hover { border-color: var(--gold); color: var(--gold); }
+  .nav-dl[aria-current="page"] { border-color: var(--gold); color: var(--gold); }
+  .nav-end { margin-right: auto; }
+  .hub-top option { background: var(--ink); color: var(--text); }
+  .lang-label { color: var(--dim); font-size: 14px; margin-right: -4px; white-space: nowrap; }
+  @media (max-width: 560px) {
+    .hub-top { gap: 8px; flex-wrap: wrap; }
+    .hub-top .brand { margin-right: auto; }
+    .nav-end { margin-right: 0; }
+    .lang-label { display: none; }
+    .nav-dl, .hub-top select { min-height: 44px; padding: 0 10px; }
+    .hub-top select { max-width: 116px; }
+  }
+
+  /* 제목 + 갈래 고르기 (PC / 안드로이드) */
+  .g-head { padding: clamp(40px, 8vh, 80px) 0 28px; }
+  .g-head h1 { font-size: clamp(44px, 8vw, 72px); line-height: 1; letter-spacing: -.02em; margin: 0 0 30px; }
+  .tabs { display: inline-flex; padding: 4px; gap: 4px; border: 1.5px solid rgba(234, 227, 204, .35); border-radius: 8px; background: rgba(11, 37, 46, .6); }
+  .tabs button { min-height: 46px; padding: 0 22px; border: 0; border-radius: 5px; background: transparent; color: var(--dim); font: inherit; font-size: 17px; font-weight: 700; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px; transition: background .2s, color .2s; }
+  .tabs button svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .tabs button:hover { color: var(--text); }
+  .tabs button[aria-selected="true"] { background: var(--gold); color: var(--gold-ink); }
+
+  /* 단계: 왼쪽 금색 번호 + 세로 길 (지도 위 경로처럼 점선) */
+  .panel { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 48px; align-items: start; padding-top: 18px; }
+  .panel[hidden] { display: none; }
+  .lead { margin: 0 0 30px; color: var(--text); font-size: 18px; max-width: 60ch; }
+  .g-steps { list-style: none; counter-reset: s; margin: 0; padding: 0; }
+  .g-steps li { counter-increment: s; position: relative; padding: 0 0 34px 68px; }
+  .g-steps li::before { content: counter(s); position: absolute; left: 0; top: -4px; width: 44px; height: 44px; display: grid; place-items: center;
+    border-radius: 50%; background: var(--ink); border: 2px solid var(--gold); color: var(--gold); font-weight: 700; font-size: 19px; }
+  .g-steps li::after { content: ""; position: absolute; left: 21px; top: 46px; bottom: 4px; border-left: 2px dashed rgba(234, 227, 204, .22); }
+  .g-steps li:last-child { padding-bottom: 0; }
+  .g-steps li:last-child::after { display: none; }
+  .g-steps h3 { margin: 4px 0 6px; font-size: 21px; line-height: 1.35; }
+  .g-steps p { margin: 0; color: var(--dim); max-width: 58ch; }
+
+  /* 옆 상자: 단축키·내려받기 */
+  .side { position: sticky; top: 24px; padding: 26px 24px; background: rgba(11, 37, 46, .72); border: 1.5px solid var(--edge); }
+  .side::after { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(234, 227, 204, .22); pointer-events: none; }
+  .side h2 { font-size: 18px; margin: 0 0 14px; }
+  .side ul { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 12px; }
+  .side li { display: flex; align-items: center; gap: 12px; color: var(--dim); font-size: 15px; line-height: 1.4; }
+  .side kbd { min-width: 2.6em; text-align: center; color: var(--text); background: #143C48; font-size: 16px; font-weight: 700; padding: 2px .4em 4px; border-radius: 6px; }
+  .cta { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; background: var(--gold); color: var(--gold-ink);
+    text-decoration: none; font-weight: 700; font-size: 18px; border-radius: 4px; transition: background .2s; }
+  .cta:hover { background: #F7CD6C; }
+  .cta svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .cta-2 { position: relative; z-index: 1; display: block; margin-top: 12px; text-align: center; color: var(--text); }
+  @media (max-width: 860px) {
+    .panel { grid-template-columns: 1fr; gap: 36px; }
+    .side { position: static; }
+  }
+  @media (max-width: 480px) {
+    .tabs { display: flex; }
+    .tabs button { flex: 1; justify-content: center; padding: 0 10px; font-size: 16px; }
+    .g-steps li { padding-left: 58px; }
+  }
+</style>
+</head>
+<body>
+<div class="hub">
+  <header class="hub-top">
+    <a class="brand" href="/ja/"><img src="/icon.png" alt="" width="30" height="30">Byeolji</a>
+    <a class="nav-dl" href="/ja/download/" data-i18n="nav.download">다운로드</a>
+    <a class="nav-dl nav-end" href="/ja/guide/" data-i18n="nav.guide" aria-current="page">사용법</a>
+    <label class="lang-label" for="lang">Language :</label>
+    <select id="lang" aria-label="Language">
+      <option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option>
+      <option value="ru">Русский</option><option value="id">Bahasa Indonesia</option><option value="es">Español</option>
+    </select>
+  </header>
+
+  <main>
+    <div class="g-head">
+      <h1 data-i18n="guide.title">사용법</h1>
+      <div class="tabs" role="tablist" aria-label="Platform">
+        <button role="tab" id="tab-pc" aria-controls="pc" aria-selected="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16.5V20"/></svg><span data-i18n="guide.pc">PC (Windows)</span>
+        </button>
+        <button role="tab" id="tab-android" aria-controls="android" aria-selected="false" tabindex="-1">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2"/><path d="M10.5 18.5h3"/></svg><span data-i18n="guide.android">안드로이드</span>
+        </button>
+      </div>
+    </div>
+
+    <section class="panel" id="pc" role="tabpanel" aria-labelledby="tab-pc">
+      <div>
+        <p class="lead" data-i18n="guide.pcLead">원신 PC 버전 위에 띄워 쓰는 Windows 앱이에요. 설치한 뒤 Byeolji를 켜고 원신을 고르면 게임 화면 위에 자원 마커가 떠요.</p>
+        <ol class="g-steps">
+        <li>
+          <h3 data-i18n="guide.tw1t">큰 지도 열기</h3>
+          <p data-i18n="guide.tw1">게임에서 큰 지도(M)를 열면 마커가 뜨고, 지도를 움직이면 같이 따라 움직여요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tw2t">자원 고르기</h3>
+          <p data-i18n="guide.tw2">보고 싶은 자원 카드를 눌러 켜세요. 카드의 별을 누르면 맨 위 즐겨찾기에 모여요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tw3t">획득 체크</h3>
+          <p data-i18n="guide.tw3"><kbd>Ctrl</kbd> 키를 누른 채 마커를 클릭하면 획득으로 표시돼요. 다시 하면 취소돼요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tw4t">단축키</h3>
+          <p data-i18n="guide.tw4"><kbd>F7</kbd> 키로 이 패널을, <kbd>F6</kbd> 키로 마커를 켜고 꺼요. 키는 설정에서 바꿀 수 있어요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tw5t">설정</h3>
+          <p data-i18n="guide.tw5">설정(톱니바퀴)에서 마커 크기, 투명도, 테마, 언어를 바꿀 수 있어요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tw6t">계정 동기화</h3>
+          <p data-i18n="guide.tw6">로그인하면 획득 기록과 즐겨찾기가 다른 PC, 휴대폰, 웹 지도와 이어져요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tw7t">게임 바꾸기</h3>
+          <p data-i18n="guide.tw7">위쪽 집 버튼을 누르면 게임 선택 창으로 돌아가요. 이 안내는 설정 맨 아래에서 다시 볼 수 있어요.</p>
+        </li>
+        </ol>
+      </div>
+      <aside class="side">
+        <h2 data-i18n="guide.keys">단축키</h2>
+        <ul>
+          <li><kbd>F6</kbd><span data-i18n="keys.f6">지도 마커 켜기·끄기</span></li>
+          <li><kbd>F7</kbd><span data-i18n="keys.f7">자원 고르는 패널 열기·닫기</span></li>
+          <li><kbd>F8</kbd><span data-i18n="keys.f8">위치 다시 찾기</span></li>
+          <li><kbd>F10</kbd><span data-i18n="keys.f10">진단 화면</span></li>
+        </ul>
+        <a class="cta" href="/ja/download/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11m0 0-4.5-4.5m4.5 4.5 4.5-4.5M4.5 19.5h15"/></svg><span data-i18n="guide.dl">내려받기</span></a>
+      </aside>
+    </section>
+
+    <section class="panel" id="android" role="tabpanel" aria-labelledby="tab-android" hidden>
+      <div>
+        <p class="lead" data-i18n="guide.androidLead">안드로이드 앱(베타)은 자원 지도와, 게임 위에 띄우는 플로팅·실시간 추적 모드를 지원해요.</p>
+        <ol class="g-steps">
+        <li>
+          <h3 data-i18n="guide.tm1t">자원 고르기</h3>
+          <p data-i18n="guide.tm1">보고 싶은 자원 카드를 눌러 켜세요. 카드의 별을 누르면 맨 위 즐겨찾기에 모여요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tm2t">지도에서 체크</h3>
+          <p data-i18n="guide.tm2">지도에서 마커를 누르면 획득으로 표시돼요. 여러 개가 묶인 마커를 누르면 그 자리로 확대돼요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tm3t">플로팅 모드</h3>
+          <p data-i18n="guide.tm3">지도 오른쪽 위의 플로팅 모드를 누르면 게임 위에 작은 지도 창이 떠요. 버블을 눌러 열고 닫아요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tm4t">실시간 추적</h3>
+          <p data-i18n="guide.tm4">실시간 추적을 누르면 게임 큰 지도를 알아보고 그 위에 마커를 바로 띄워요. 버블을 누르면 패널이 열려요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tm5t">체크 모드</h3>
+          <p data-i18n="guide.tm5">실시간 추적 패널에서 체크 모드를 켜면 마커를 눌러 획득 표시할 수 있어요. 끄면 다시 게임을 조작해요.</p>
+        </li>
+        <li>
+          <h3 data-i18n="guide.tm6t">끄기와 동기화</h3>
+          <p data-i18n="guide.tm6">버블을 화면 아래로 끌어다 놓으면 꺼져요. 로그인하면 획득 기록과 즐겨찾기가 PC, 웹 지도와 이어져요.</p>
+        </li>
+        </ol>
+      </div>
+      <aside class="side">
+        <a class="cta" href="/ja/download/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11m0 0-4.5-4.5m4.5 4.5 4.5-4.5M4.5 19.5h15"/></svg><span data-i18n="guide.dl">내려받기</span></a>
+        <a class="cta-2 line" href="/ja/genshin/map/" data-i18n="guide.map">웹 지도 열기</a>
+      </aside>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <p data-i18n="footer">Byeolji는 HoYoverse와 관계없는 개인 팬 프로젝트이며, 원신과 게임 데이터·이미지의 권리는 HoYoverse에 있습니다.</p>
+</footer>
+
+<script src="/i18n.js"></script>
+<script src="/guide/guide.js"></script>
+</body>
+</html>

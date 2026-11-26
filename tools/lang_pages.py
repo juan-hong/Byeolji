@@ -12,7 +12,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://byeolji.app'
 LANGS = ['ko', 'en', 'ja', 'zh', 'ru', 'id', 'es']
 HTML_LANG = {'zh': 'zh-CN'}
-PAGES = ['/', '/download/', '/genshin/map/']
+PAGES = ['/', '/download/', '/guide/', '/genshin/map/']
 
 # 페이지별 제목·설명 (ko 는 원본 그대로)
 META = {
@@ -23,6 +23,14 @@ META = {
   'ru': ('Byeolji · карта Genshin Impact', 'Byeolji: карта ресурсов Genshin Impact и оверлей карты поверх игры. Прогресс синхронизируется между вебом, ПК и Android одним аккаунтом.'),
   'id': ('Byeolji · Peta Genshin Impact', 'Byeolji: peta sumber daya Genshin Impact dan overlay peta di atas game. Progres tersinkron di web, PC, dan Android dengan satu akun.'),
   'es': ('Byeolji · Mapa de Genshin Impact', 'Byeolji: mapa de recursos de Genshin Impact y superposición del mapa sobre el juego. Tu progreso se sincroniza entre web, PC y Android con una cuenta.'),
+ },
+ '/guide/': {
+  'en': ('Byeolji · How to use', 'How to use Byeolji: the Genshin Impact PC overlay (Windows) and the Android app. Open the map, pick resources, mark spots collected, hotkeys, floating and live tracking modes, account sync.'),
+  'ja': ('Byeolji · 使い方', 'Byeolji の使い方: 原神PCオーバーレイ(Windows)とAndroidアプリ。地図を開く、素材を選ぶ、入手済みにする、ショートカット、フローティング・リアルタイム追跡、アカウント同期。'),
+  'zh': ('Byeolji · 使用方法', 'Byeolji 使用方法：原神电脑叠加工具(Windows)和安卓应用。打开地图、选择资源、标记已获得、快捷键、悬浮窗与实时追踪、账号同步。'),
+  'ru': ('Byeolji · Как пользоваться', 'Как пользоваться Byeolji: оверлей Genshin Impact для ПК (Windows) и приложение для Android. Карта, выбор ресурсов, отметки, горячие клавиши, плавающее окно и отслеживание, синхронизация.'),
+  'id': ('Byeolji · Cara pakai', 'Cara pakai Byeolji: overlay Genshin Impact untuk PC (Windows) dan aplikasi Android. Buka peta, pilih sumber daya, tandai yang diambil, pintasan, mode mengambang dan pelacakan langsung, sinkron akun.'),
+  'es': ('Byeolji · Cómo se usa', 'Cómo usar Byeolji: el overlay de Genshin Impact para PC (Windows) y la app de Android. Abrir el mapa, elegir recursos, marcar lo recogido, atajos, modos flotante y en vivo, sincronización.'),
  },
  '/download/': {
   'en': ('Byeolji · Download', 'Download Byeolji: the Genshin Impact map overlay for Windows and the Android app (beta), with requirements and install guides.'),
