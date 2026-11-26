@@ -33,24 +33,33 @@
 <link rel="stylesheet" href="/site.css">
 <style>
   .hub { max-width: 1040px; margin: 0 auto; padding: 0 20px 64px; }
-  .hub-top { display: flex; align-items: center; gap: 14px; padding: 18px 0; }
-  .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: auto; }
+  /* 큰 별이 오른쪽으로 삐져나가도 가로 스크롤 안 생기게 */
+  body { overflow-x: clip; }
+  .hub-top { position: relative; z-index: 2; display: flex; align-items: center; gap: 14px; padding: 16px 0; }
+  .hub-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; margin-right: auto; white-space: nowrap; }
   .hub-top .brand img { border-radius: 7px; }
-  .hub-top .brand, .nav-dl { white-space: nowrap; }
-  @media (max-width: 420px) { .hub-top { gap: 8px; } .hub-top select { max-width: 110px; } }
-  .nav-dl { color: var(--dim); text-decoration: none; border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 10px; }
-  .nav-dl:hover { color: var(--gold); border-color: var(--gold); }
+  .nav-dl, .hub-top select { min-height: 40px; display: inline-flex; align-items: center; color: var(--text); text-decoration: none;
+    border: 1.5px solid rgba(234, 227, 204, .35); border-radius: 6px; padding: 0 14px; font: inherit; font-size: 15px; background: rgba(11, 37, 46, .55); white-space: nowrap; }
+  .nav-dl:hover, .hub-top select:hover { border-color: var(--gold); color: var(--gold); }
+  .hub-top option { background: var(--ink); color: var(--text); }
   .lang-label { color: var(--dim); font-size: 14px; margin-right: -6px; white-space: nowrap; }
-  /* 게임 고르기 아래 PC 앱 소개 */
-  .intro { margin-top: 88px; border-top: 1px solid rgba(234, 227, 204, .12); padding-top: 40px; }
-  .hub-top select { background: transparent; color: var(--text); border: 1px solid rgba(234, 227, 204, .25); border-radius: 7px; padding: 4px 6px; font: inherit; }
-  .hub-top option { background: var(--ink); }
-  /* 표제: 지도 표제처럼 왼쪽 큰 이름 + 오른쪽 설명, 아래 이중선 */
-  .mast { display: grid; grid-template-columns: auto 1fr; align-items: end; gap: 12px 48px; padding: 64px 0 22px;
-    border-bottom: 1px solid rgba(234, 227, 204, .3); box-shadow: 0 5px 0 -4px rgba(234, 227, 204, .14); }
-  .mast-name { display: flex; align-items: center; gap: 18px; margin: 0; font-size: clamp(44px, 7.4vw, 84px); line-height: 1; letter-spacing: -.015em; }
-  .mast-name img { width: .82em; height: .82em; border-radius: 22%; box-shadow: 0 8px 24px rgba(0, 0, 0, .35); }
-  .mast-tag { margin: 0 0 4px; color: var(--dim); max-width: 46ch; justify-self: end; text-wrap: pretty; }
+  @media (max-width: 560px) {
+    .hub-top { padding: 12px 0; gap: 8px; }
+    .lang-label { display: none; }
+    .nav-dl, .hub-top select { min-height: 44px; padding: 0 10px; }
+    .hub-top select { max-width: 116px; }
+  }
+  /* 표제: 굵은 이름 + 한 줄. 오른쪽 뒤 큰 북극성 윤곽이 아주 느리게 돎 */
+  section.mast { position: relative; max-width: none; margin: 0; padding: clamp(56px, 11vh, 120px) 0 40px; isolation: isolate; overflow-x: clip; }
+  .mast-star { position: absolute; z-index: -1; right: -60px; top: 50%; width: min(62vw, 640px); aspect-ratio: 1; margin-top: calc(min(62vw, 640px) / -2);
+    pointer-events: none; opacity: .22; animation: star-turn 240s linear infinite; }
+  .mast-star svg { width: 100%; height: 100%; fill: none; stroke: var(--gold); stroke-width: .35; }
+  @keyframes star-turn { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .mast-star { animation: none; } }
+  .mast-name { margin: 0; font-size: clamp(64px, 12vw, 96px); font-weight: 700; line-height: .95; letter-spacing: -.03em; }
+  .mast-name .star { display: inline-block; width: .42em; height: .42em; margin-left: .08em; vertical-align: .6em; background: var(--gold);
+    clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); }
+  .mast-tag { margin: 22px 0 0; max-width: 32ch; font-size: clamp(19px, 2.2vw, 24px); line-height: 1.6; color: var(--text); text-wrap: pretty; }
   .pick { display: flex; align-items: center; gap: 12px; margin: 34px 0 14px; font-size: 15px; color: var(--dim); }
   .pick::after { content: ""; flex: 1; height: 1px; background: rgba(234, 227, 204, .14); }
   .pick svg { width: 14px; height: 14px; fill: var(--gold); flex: none; }
@@ -85,8 +94,8 @@
   .game .tag { position: absolute; top: 16px; right: 18px; font-size: 13px; color: var(--edge); background: rgba(11, 37, 46, .8);
     border: 1px solid rgba(234, 227, 204, .4); padding: 0 10px; line-height: 1.7; }
   @media (max-width: 720px) {
-    .mast { grid-template-columns: 1fr; padding-top: 36px; }
-    .mast-tag { justify-self: start; }
+    section.mast { padding: 40px 0 28px; }
+    .mast-star { width: 86vw; margin-top: -43vw; right: -30vw; }
     .games { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
     .game.main { grid-column: 1 / -1; grid-row: auto; min-height: 300px; }
     .game { min-height: 150px; padding: 18px; }
@@ -107,7 +116,8 @@
   </header>
 
   <section class="mast">
-    <p class="mast-name"><img src="/icon.png" alt="">Byeolji</p>
+    <span class="mast-star" aria-hidden="true"><svg viewBox="-26 -26 52 52"><path d="M0-24 5-5 24 0 5 5 0 24-5 5-24 0-5-5z"/><circle r="15"/><circle r="19.5" stroke-dasharray=".6 1.4"/></svg></span>
+    <p class="mast-name">Byeolji<span class="star" aria-hidden="true"></span></p>
     <p class="mast-tag" data-i18n="hub.tag">원신 자원 지도와 게임 위에 띄우는 지도 앱. 웹·PC·안드로이드 어디서든 같은 계정으로 기록이 이어집니다.</p>
   </section>
 
