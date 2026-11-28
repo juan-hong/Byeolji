@@ -2,7 +2,7 @@
 // CLIENT 가 비어 있으면 아무것도 안 불러오고 광고 자리(.ad-slot)도 지움.
 // 광고 단위 id(SLOTS)가 빈 자리는 그 자리만 지움 -> 승인 전엔 스크립트만 붙어 있어 심사·확인용으로 충분
 (() => {
-  const CLIENT = '';
+  const CLIENT = 'ca-pub-1716096958492737';
   const SLOTS = { home: '', guide: '', download: '', map: '' };
 
   const boxes = [...document.querySelectorAll('.ad-slot')];
