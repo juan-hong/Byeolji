@@ -1,0 +1,1 @@
+# 구글 애드센스 승인 뒤 tools/set_adsense.py 가 아래 줄을 채움

@@ -239,3 +239,13 @@ svg { width: 1em; height: 1em; fill: currentColor; flex: none; }
 .tile .fav { position: absolute; right: 27px; top: 4px; }
 .tile.on .fav:not(.on) { color: var(--on-sel); }
 .sec.favs .sec-h .nm::before { content: "\2605"; color: #F4C150; margin-right: 6px; }
+
+/* 광고 자리 (ads.js). 위에 작은 '광고' 표시, 자리 미리 잡아 화면 밀림 줄임 */
+.ad-slot { margin: 24px 0 0; min-height: 100px; }
+.ad-slot::before { content: "Advertisement"; display: block; margin-bottom: 6px; font-size: 12px; letter-spacing: .04em; color: #7C979B; text-align: center; }
+:lang(ko) .ad-slot::before { content: "광고"; }
+:lang(ja) .ad-slot::before { content: "広告"; }
+:lang(zh-CN) .ad-slot::before { content: "广告"; }
+:lang(ru) .ad-slot::before { content: "Реклама"; }
+:lang(id) .ad-slot::before { content: "Iklan"; }
+:lang(es) .ad-slot::before { content: "Publicidad"; }

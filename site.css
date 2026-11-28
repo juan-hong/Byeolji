@@ -256,3 +256,13 @@ footer p { margin: 0; }
   .steps { grid-template-columns: 1fr; }
   section:not(.survey) { padding-top: 72px; }
 }
+
+/* 광고 자리 (ads.js). 위에 작은 '광고' 표시, 자리 미리 잡아 화면 밀림 줄임 */
+.ad-slot { margin: 56px auto 0; padding: 0 20px; max-width: 1010px; min-height: 120px; }
+.ad-slot::before { content: "Advertisement"; display: block; margin-bottom: 6px; font-size: 12px; letter-spacing: .04em; color: #7C979B; text-align: center; }
+:lang(ko) .ad-slot::before { content: "광고"; }
+:lang(ja) .ad-slot::before { content: "広告"; }
+:lang(zh-CN) .ad-slot::before { content: "广告"; }
+:lang(ru) .ad-slot::before { content: "Реклама"; }
+:lang(id) .ad-slot::before { content: "Iklan"; }
+:lang(es) .ad-slot::before { content: "Publicidad"; }
